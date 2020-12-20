@@ -86,22 +86,6 @@
                             <mclpages:MclPageSettings />
                         </universal:FrameAssist.FrameContent>
                     </RadioButton>
-                    <RadioButton Style="{DynamicResource USideOptionsButton}"
-                                 Background="#0000"
-                                 x:Name="SideOptionAboutBtn"
-                                 Cursor="Hand">
-                        <StackPanel Orientation="Horizontal"
-                                    VerticalAlignment="Center">
-                            <Viewbox Width="18"
-                                     Height="18">
-                                <Path Data="{DynamicResource SvgIconInfo}"
-                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
-                                      x:Name="SvgIconAbout" />
-                            </Viewbox>
-                            <TextBlock Text="About"
-                                       Style="{DynamicResource SideOptionsTextBlock}" />
-                        </StackPanel>
-                    </RadioButton>
                 </StackPanel>
             </Setter.Value>
         </Setter>

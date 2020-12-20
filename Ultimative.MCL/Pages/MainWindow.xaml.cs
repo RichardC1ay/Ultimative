@@ -26,7 +26,6 @@ namespace Ultimative.MCL
         RadioButton sideOptionAccountSwitchBtn;
         RadioButton sideOptionVersionControlBtn;
         RadioButton sideOptionSettingsBtn;
-        RadioButton sideOptionAboutBtn;
         ModernWpf.Controls.Frame frameContentNavigator;
 
         public MainWindow()
@@ -47,16 +46,14 @@ namespace Ultimative.MCL
             sideOptionAccountSwitchBtn = TemplateHelper.GetVisualChild<RadioButton>((DependencyObject)sideOptionsPresenter.Content, v => v.Name == "SideOptionAccountSwitchBtn");
             sideOptionVersionControlBtn = TemplateHelper.GetVisualChild<RadioButton>((DependencyObject)sideOptionsPresenter.Content, v => v.Name == "SideOptionVersionControlBtn");
             sideOptionSettingsBtn = TemplateHelper.GetVisualChild<RadioButton>((DependencyObject)sideOptionsPresenter.Content, v => v.Name == "SideOptionSettingsBtn");
-            sideOptionAboutBtn = TemplateHelper.GetVisualChild<RadioButton>((DependencyObject)sideOptionsPresenter.Content, v => v.Name == "SideOptionAboutBtn");
             frameContentNavigator = GetTemplateChild("contentFrame") as ModernWpf.Controls.Frame;
 
             sideOptionLaunchPageBtn.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(OnSideOptionChanged);
             sideOptionAccountSwitchBtn.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(OnSideOptionChanged);
             sideOptionVersionControlBtn.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(OnSideOptionChanged);
             sideOptionSettingsBtn.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(OnSideOptionChanged);
-            sideOptionAboutBtn.PreviewMouseLeftButtonUp += new MouseButtonEventHandler(OnSideOptionChanged);
 
-            
+            OnSideOptionChanged(sideOptionLaunchPageBtn, null);
         }
 
         

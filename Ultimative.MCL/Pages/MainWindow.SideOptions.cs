@@ -20,6 +20,10 @@ namespace Ultimative.MCL
         {
             if (Selected != null)
             {
+                if(Selected == sender)
+                {
+                    return;
+                }
                 Selected.Background = new SolidColorBrush(Color.FromArgb(0,0,0,0));
                 StackPanel _selContent = Selected.Content as StackPanel;
                 ((Path)((Viewbox)_selContent.Children[0]).Child).Fill = FindResource("UltimativeRadioButtonUnselectedBrush") as SolidColorBrush;
@@ -34,9 +38,10 @@ namespace Ultimative.MCL
             ((TextBlock)content.Children[1]).Foreground = FindResource("UltimativeRadioButtonSelectedBrush") as SolidColorBrush;
 
             frameContentNavigator.Navigate(
-                FrameAssist.GetFrameContent(_selected).GetType(), 
-                null, 
-                new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft }
+                FrameAssist.GetFrameContent(_selected).GetType(),
+                null,
+                new DrillInNavigationTransitionInfo()
+            //new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft }
             );
         }
     }

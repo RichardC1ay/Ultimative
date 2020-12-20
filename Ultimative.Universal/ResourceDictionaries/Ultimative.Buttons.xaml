@@ -12,7 +12,7 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -139,7 +139,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="{DynamicResource UltimativeThirdAccentBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource BackgroundTier2Brush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

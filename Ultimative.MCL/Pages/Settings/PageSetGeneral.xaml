@@ -3,20 +3,91 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:convertor="clr-namespace:Ultimative.Universal.Convertor;assembly=Ultimative.Universal"
+      xmlns:controls="clr-namespace:Ultimative.Controls;assembly=Ultimative.Universal"
       xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
+      xmlns:muxc="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="PageSetGeneral">
-    <ScrollViewer VerticalScrollBarVisibility="Disabled">
-        <StackPanel Margin="40,0">
-            <HeaderedContentControl Header="Ultimative Universal"
+    <controls:AnimatedScrollViewer VerticalScrollBarVisibility="Hidden">
+        <StackPanel Margin="30,12">
+            <HeaderedContentControl Header="Check for updates"
                                     FontSize="14">
-                <StackPanel Background="{DynamicResource BackgroundTier3Brush}">
-                    
+                <StackPanel>
+                    <muxc:ToggleSwitch OffContent="Do not update automatically"
+                                       OnContent="Download when updates available"
+                                       x:Name="UseAutoUpdate" />
+                    <Border Background="{DynamicResource BackgroundTier2Brush}"
+                            CornerRadius="3"
+                            Margin="0,5">
+                        <Grid x:Name="UpdateControlPanel"
+                              IsEnabled="{Binding IsOn, ElementName=UseAutoUpdate, Converter={StaticResource InverseBooleanConvertor}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="48" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="No updates available."
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="10" />
+                            <Button Style="{StaticResource AccentButtonStyle}"
+                                    HorizontalAlignment="Right"
+                                    Margin="10"
+                                    FontSize="12"
+                                    Content="Check" />
+
+                            <Rectangle Grid.Row="1"
+                                       VerticalAlignment="Top"
+                                       Height="1"
+                                       Fill="#1E000000" />
+                            <StackPanel Margin="15,5"
+                                        Grid.Row="1">
+                                <TextBlock Text="Warning! Beta and Internal branch may have more bug fixes and function, but also more fatal errors"
+                                           FontSize="12"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="0,5" />
+                                <RadioButton Content="Update to Master branch"
+                                             IsChecked="True" />
+                                <RadioButton Content="Update to Beta branch" />
+                                <RadioButton Content="Update to Internal branch" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </StackPanel>
+            </HeaderedContentControl>
+
+            <HeaderedContentControl Header="Language"
+                                    FontSize="14">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Display language"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="10" />
+                    <ComboBox Grid.Column="1"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Stretch"
+                              Loaded="LangComboBox_Loaded"
+                              SelectedIndex="0" />
+
+                    <muxc:HyperlinkButton Grid.Row="1"
+                                          Grid.ColumnSpan="2"
+                                          Margin="10,0"
+                                          Content="Help us translate this program, and make it globalized"/>
+                </Grid>
             </HeaderedContentControl>
         </StackPanel>
         
-    </ScrollViewer>
+    </controls:AnimatedScrollViewer>
 </Page>

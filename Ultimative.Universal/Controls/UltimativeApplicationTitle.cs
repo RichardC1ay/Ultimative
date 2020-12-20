@@ -91,8 +91,8 @@ namespace Ultimative.Controls
             bool alwaysOnTopState = (AppSettings.AlwaysOnTop = !AppSettings.AlwaysOnTop);
             Application.Current.MainWindow.Topmost = alwaysOnTopState;
             alwaysOnTopSwitchSvg.Fill = FindResource(alwaysOnTopState 
-                ? "AppAccentBrush" 
-                : "ForegroundInvertedBrush") as SolidColorBrush;
+                ? "AccentButtonBackground" 
+                : "ForegroundBrush") as SolidColorBrush;
         }
 
         private void OnMinimizeButtonClick(object sender, MouseEventArgs e)

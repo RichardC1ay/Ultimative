@@ -40,11 +40,6 @@
                 <Grid x:Name="SideOptionsPanel"
                       Grid.Row="1"
                       Background="{DynamicResource BackgroundTier2Brush}">
-                    <Grid.Effect>
-                        <DropShadowEffect ShadowDepth="0"
-                                          Opacity="0.3"
-                                          BlurRadius="{Binding Source={x:Static universal:AppSettings.ShadowRadius}, Mode=OneWay}" />
-                    </Grid.Effect>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120" />
                         <RowDefinition Height="*" />
@@ -70,7 +65,9 @@
 
                 <muxc:Frame x:Name="contentFrame"
                             Grid.Row="1"
-                            Grid.Column="1" />
+                            Grid.Column="1"
+                            IsTabStop="False"
+                            SandboxExternalContent="True" />
 
                 <AdornerDecorator x:Name="AdornerDecorator"
                                   Grid.Row="1"

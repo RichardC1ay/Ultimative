@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Ultimative.Universal">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Buttons.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Light.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ScalableVectorGraphic.xaml" />
+        <!--ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.FontFamilies.xaml" /-->
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.TextBlocks.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ScrollViewers.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.TabControls.xaml" />
+        <!--ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ModernUI.xaml" /-->
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Layouts.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Convertors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

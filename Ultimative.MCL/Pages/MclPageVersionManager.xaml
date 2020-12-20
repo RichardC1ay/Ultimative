@@ -9,6 +9,33 @@
       Title="MclPageVersionManager">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <TextBlock Text="Installed versions"
+                       Margin="25,15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="24" />
+            <Button Style="{StaticResource UFlatButton}"
+                    Margin="20,15"
+                    Foreground="#0D0"
+                    FontSize="14"
+                    Background="{DynamicResource BackgroundTier3Brush}"
+                    Padding="15,8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Cursor="Hand">
+                Install new version
+            </Button>
+        </Grid>
+
+        <Rectangle Grid.Row="1"
+                   VerticalAlignment="Top"
+                   Height="1"
+                   Fill="#1E000000" />
     </Grid>
 </Page>

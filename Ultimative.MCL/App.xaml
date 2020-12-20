@@ -7,16 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--" ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/-->
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Buttons.xaml" />
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Light.xaml" />
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ScalableVectorGraphic.xaml" />
-                <!--ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.FontFamilies.xaml" /-->
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.TextBlocks.xaml" />
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ScrollViewers.xaml" />
-                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.TabControls.xaml" />
-                <!--ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ModernUI.xaml" /-->
+                <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.DictionaryCollections.xaml" />
                 <modern:ThemeResources />
                 <modern:XamlControlsResources />
                 <ResourceDictionary Source="/Controls/MclControls.xaml"/>

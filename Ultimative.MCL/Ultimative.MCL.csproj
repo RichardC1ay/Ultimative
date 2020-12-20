@@ -61,6 +61,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Launch\Account.cs" />
     <Compile Include="Launch\Launcher.ArgumentsHolder.cs" />
     <Compile Include="Launch\Launcher.cs" />
@@ -84,6 +85,9 @@
     </Compile>
     <Compile Include="Pages\MclPageVersionManager.xaml.cs">
       <DependentUpon>MclPageVersionManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\PageSetAbout.xaml.cs">
+      <DependentUpon>PageSetAbout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Settings\PageSetAppearance.xaml.cs">
       <DependentUpon>PageSetAppearance.xaml</DependentUpon>
@@ -114,6 +118,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\lang.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,6 +128,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Assets\Languages\en_US.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Languages\zh_CN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MclControls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -148,6 +161,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\MclPageVersionManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings\PageSetAbout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

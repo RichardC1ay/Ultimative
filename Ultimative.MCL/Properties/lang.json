@@ -1,0 +1,28 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "language": [
+    {
+      "name": "简体中文",
+      "key": "zh_CN",
+      "eng": "Simplified Chinese"
+    },
+    {
+      "name": "繁體中文",
+      "key": "zh_TW",
+      "eng": "Traditional Chinese"
+    },
+    {
+      "name": "English (United States)",
+      "key": "en_US",
+      "eng": "English"
+    },
+  ]
+
+}

@@ -54,9 +54,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AnimatedListBox.cs" />
+    <Compile Include="Controls\AnimatedScrollViewer.cs" />
+    <Compile Include="Convertor\InverseBooleanConvertor.cs" />
     <Compile Include="ScrollViewerAssist.cs" />
     <Compile Include="TextFieldAssist.cs" />
+    <Compile Include="Utilities\AnimationUtil.cs" />
+    <Compile Include="Utilities\BindingProxy.cs" />
     <Compile Include="Utilities\TemplateHelper.cs" />
+    <Compile Include="Utilities\ValuePackaged.cs" />
     <Compile Include="Utilities\WindowAccentCompositor.cs" />
     <Page Include="ResourceDictionaries\Ultimative.Buttons.xaml">
       <SubType>Designer</SubType>
@@ -66,9 +72,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ResourceDictionaries\Ultimative.Convertors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\Ultimative.DictionaryCollections.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionaries\Ultimative.FontFamilies.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionaries\Ultimative.Layouts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceDictionaries\Ultimative.Light.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +128,6 @@
     <Compile Include="Applications\Function.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="ButtonAssist.cs" />
-    <Compile Include="Controls\ScalableVectorGraphic.cs" />
     <Compile Include="Controls\UltimativeApplicationTitle.cs" />
     <Compile Include="FrameAssist.cs" />
   </ItemGroup>

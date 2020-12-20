@@ -16,22 +16,13 @@ using System.Windows.Shapes;
 namespace Ultimative.MCL.Pages
 {
     /// <summary>
-    /// PageSetGeneral.xaml 的交互逻辑
+    /// PageSetAbout.xaml 的交互逻辑
     /// </summary>
-    public partial class PageSetGeneral : Page
+    public partial class PageSetAbout : Page
     {
-        public PageSetGeneral()
+        public PageSetAbout()
         {
             InitializeComponent();
-        }
-
-        private void LangComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            var _langBox = (ComboBox)sender;
-
-            _langBox.Items.Add("English (English)");
-            _langBox.Items.Add("简体中文 (Simplified Chinese)");
-            _langBox.Items.Add("繁體中文 (Traditional Chinese)");
         }
     }
 }

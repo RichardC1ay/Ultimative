@@ -29,6 +29,9 @@ namespace Ultimative.MCL.Pages
             AddMenuItem(typeof(PageSetAppearance), "Appearance");
             AddMenuItem(typeof(PageSetInternet), "Internet");
             AddMenuItem(typeof(PageSetLaunch), "Launch");
+            AddMenuItem(typeof(PageSetAbout), "About");
+
+            ((ModernWpf.Controls.NavigationViewItem)SettingNavigation.MenuItems[0]).IsSelected = true;
 
             InitGenralSettings();
             InitAppearanceSettings();

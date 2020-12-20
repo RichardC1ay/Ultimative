@@ -14,39 +14,18 @@ namespace Ultimative.Universal
     {
         public static bool AlwaysOnTop { get; set; }
         public static bool WindowMaximized { get; set; }
-        public static bool AllowShadow { get; set; }
         public static Grid RootPanel { get; set; }
-        public static int ShadowRadius
-        {
-            get { return _shadowRadius; }
-            set
-            {
-                _shadowRadius = value;
-                if (StaticPropertyChanged != null)
-                    StaticPropertyChanged(null, new PropertyChangedEventArgs("ShadowRadius"));
-            }
-        }
-        public static Color AccentColor
-        {
-            get { return _accentColor; }
-            set
-            {
-                _accentColor = value;
-                if (StaticPropertyChanged != null)
-                    StaticPropertyChanged(null, new PropertyChangedEventArgs("AccentColor"));
-            }
-        }
+        public static bool AutoUpdate { get; set; }
 
-        private static int _shadowRadius;
-        private static Color _accentColor;
-
+#pragma warning disable CS0067 // 从不使用事件“AppSettings.StaticPropertyChanged”
         public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
+#pragma warning restore CS0067 // 从不使用事件“AppSettings.StaticPropertyChanged”
 
         static AppSettings()
         {
             AlwaysOnTop = false;
             WindowMaximized = false;
-            ShadowRadius = 0;
+            AutoUpdate = false;
         }
     }
 
