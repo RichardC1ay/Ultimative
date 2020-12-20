@@ -1,0 +1,17 @@
+﻿<Page x:Class="Ultimative.MCL.Pages.MclPageLauncher"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ultimative.MCL.Pages"
+      xmlns:universal="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
+      mc:Ignorable="d" 
+      MinHeight="524" MinWidth="630"
+      Title="Bootstrapper">
+    <Grid>
+        <Border VerticalAlignment="Top"
+                Margin="30" 
+                Height="130"
+                Background="{DynamicResource UltimativeThirdAccentBrush}"/>
+    </Grid>
+</Page>

@@ -1,0 +1,55 @@
+﻿<Page x:Class="Ultimative.MCL.Pages.MclPageSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
+      xmlns:muxc="http://schemas.modernwpf.com/2019"
+      xmlns:ultimative="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
+      xmlns:wpfcontrols="using:Microsoft.Toolkit.Wpf.UI.Controls"
+      mc:Ignorable="d"
+      MinHeight="524"
+      MinWidth="630"
+      Title="MclPageSettings">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <TextBlock Text="Settings"
+                       Margin="25,15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontSize="24" />
+            <Button Style="{StaticResource UFlatButton}"
+                    Margin="20,15"
+                    Foreground="Red"
+                    FontSize="14"
+                    Background="{DynamicResource BackgroundTier3Brush}"
+                    Padding="15,8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="ResetAllSettingsButtonClicked"
+                    Cursor="Hand">
+                Reset All Settings
+            </Button>
+        </Grid>
+
+        <muxc:NavigationView x:Name="SettingNavigation"
+                             Grid.Row="1"
+                             PaneDisplayMode="Top"
+                             IsSettingsVisible="False"
+                             IsBackButtonVisible="Collapsed"
+                             SelectionChanged="NavigationView_SelectionChanged">
+            <muxc:Frame x:Name="ContentFrame" />
+        </muxc:NavigationView>
+
+        <Rectangle Grid.Row="1"
+                   VerticalAlignment="Top"
+                   Height="1"
+                   Fill="#1E000000" />
+    </Grid>
+</Page>

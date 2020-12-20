@@ -1,0 +1,146 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ultimative="clr-namespace:Ultimative.Universal">
+    <SolidColorBrush x:Key="UltimativePrimaryButtonBackground" Color="Transparent"/>
+    <SolidColorBrush x:Key="UltimativePrimaryButtonHoverColor" Color="{DynamicResource UltimativeButtonHoveredColor}" />
+    <SolidColorBrush x:Key="UltimativePrimaryButtonPressColor" Color="{DynamicResource UltimativeButtonPressedColor}" />
+
+    <Style x:Key="UFlatButton" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" 
+                                x:Name="border" 
+                                CornerRadius="{Binding Path=(ultimative:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border x:Name="hover"
+                                Visibility="Hidden"
+                                CornerRadius="{Binding Path=(ultimative:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="#19000000"/>
+                        <Border Background="#1E000000" 
+                                Visibility="Hidden"
+                                x:Name="respond"
+                                CornerRadius="{Binding Path=(ultimative:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <ContentControl Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center"
+                                        Margin="{Binding Path=Padding, RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--Trigger Property="Button.IsDefaulted" Value="true"-->
+                        <!--Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/-->
+                        <!--/-->
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Visibility" TargetName="hover" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsMouseCaptured" Value="True">
+                            <Setter Property="Visibility" TargetName="respond" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UNonReflectionButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" 
+                                x:Name="border" 
+                                CornerRadius="{Binding Path=(ultimative:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                                          VerticalAlignment="Center" 
+                                          HorizontalAlignment="Center"
+                                          Margin="{Binding Path=Padding, RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UTextOnlyButton" TargetType="ButtonBase">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
+                               FontFamily="Consolas"
+                               FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UTitleButton" TargetType="{x:Type Button}" BasedOn="{StaticResource UFlatButton}">
+        <Setter Property="ultimative:ButtonAssist.CornerRadius" Value="0"/>
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="ForceCursor" Value="True"/>
+    </Style>
+
+    <Style x:Key="USideOptionsButton" TargetType="RadioButton">
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Height" Value="57"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="ForceCursor" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Margin="20,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="{DynamicResource UltimativeThirdAccentBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

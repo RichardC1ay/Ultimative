@@ -1,0 +1,93 @@
+﻿<Window x:Class="Ultimative.MCL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ultimative.MCL"
+        xmlns:controls="clr-namespace:Ultimative.Controls;assembly=Ultimative.Universal"
+        xmlns:universal="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
+        xmlns:muxc="http://schemas.modernwpf.com/2019"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="550"
+        Width="800"
+        MinHeight="550"
+        MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        OverridesDefaultStyle="True"
+        UseLayoutRounding="True">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0,1,0,0"
+                      UseAeroCaptionButtons="False"
+                      CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
+
+    <Window.Template>
+        <ControlTemplate>
+            <Grid Background="#FFFF"
+                  x:Name="RootPanel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="SideOptionsPanel"
+                      Grid.Row="1"
+                      Background="{DynamicResource BackgroundTier2Brush}">
+                    <Grid.Effect>
+                        <DropShadowEffect ShadowDepth="0"
+                                          Opacity="0.3"
+                                          BlurRadius="{Binding Source={x:Static universal:AppSettings.ShadowRadius}, Mode=OneWay}" />
+                    </Grid.Effect>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="80" />
+                    </Grid.RowDefinitions>
+                    <ContentPresenter Style="{DynamicResource BootstrapperQuickAccess}" />
+
+                    <ContentPresenter Grid.Row="1"
+                                      Style="{DynamicResource MainWindowSideOptions}"
+                                      x:Name="SideOptionsPresenter" />
+                    <Rectangle Grid.Row="1"
+                               VerticalAlignment="Top"
+                               Height="1"
+                               Fill="#1E000000" />
+
+                    <Rectangle Grid.Row="2"
+                               VerticalAlignment="Top"
+                               Height="1"
+                               Fill="#1E000000" />
+                </Grid>
+
+                <controls:UltimativeApplicationTitle Grid.ColumnSpan="2" />
+
+                <muxc:Frame x:Name="contentFrame"
+                            Grid.Row="1"
+                            Grid.Column="1" />
+
+                <AdornerDecorator x:Name="AdornerDecorator"
+                                  Grid.Row="1"
+                                  Grid.ColumnSpan="2">
+                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                </AdornerDecorator>
+
+                <ResizeGrip x:Name="WindowResizeGrip"
+                            WindowChrome.ResizeGripDirection="BottomRight"
+                            Grid.Row="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            IsTabStop="false"
+                            Visibility="Collapsed" />
+            </Grid>
+        </ControlTemplate>
+    </Window.Template>
+
+    <Grid />
+</Window>

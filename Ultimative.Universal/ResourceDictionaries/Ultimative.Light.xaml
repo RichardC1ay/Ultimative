@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:universal="clr-namespace:Ultimative.Universal">
+    <Color x:Key="UltimativeButtonHoveredColor">#26000000</Color>
+    <Color x:Key="UltimativeButtonPressedColor">#35000000</Color>
+    <Color x:Key="UltimativeRadioButtonUnselectedColor">Gray</Color>
+    <Color x:Key="UltimativeRadioButtonSelectedColor">Black</Color>
+    <Color x:Key="UltimativeForegroundColor">Black</Color>
+    <Color x:Key="BackgroundColor">White</Color>
+    <Color x:Key="BackgroundColorTier1">#FFF9F9F9</Color>
+    <Color x:Key="BackgroundColorTier2">#FFF2F2F2</Color>
+    <Color x:Key="BackgroundColorTier3">#FFEBEBEB</Color>
+    <Color x:Key="AppAccentColor">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorLight1">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorLight2">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorLight3">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorDark1">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorDark2">Dodgerblue</Color>
+    <Color x:Key="AppAccentColorDark3">Dodgerblue</Color>
+    <Color x:Key="ControlDisabledColor"></Color>
+    <Color x:Key="ForegroundColor">Black</Color>
+    <Color x:Key="ForegroundInvertedColor">White</Color>
+
+    <SolidColorBrush x:Key="AppAccentBrush" Color="{StaticResource AppAccentColor}"/>
+    <SolidColorBrush x:Key="AppAccentLight1Brush" Color="{StaticResource AppAccentColorLight1}"/>
+    <SolidColorBrush x:Key="AppAccentLight2Brush" Color="{StaticResource AppAccentColorLight2}"/>
+    <SolidColorBrush x:Key="AppAccentLight3Brush" Color="{StaticResource AppAccentColorLight3}" />
+    <SolidColorBrush x:Key="AppAccentDark1Brush" Color="{StaticResource AppAccentColorDark1}" />
+    <SolidColorBrush x:Key="AppAccentDark2Brush" Color="{StaticResource AppAccentColorDark2}" />
+    <SolidColorBrush x:Key="AppAccentDark3Brush" Color="{StaticResource AppAccentColorDark3}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="BackgroundTier1Brush" Color="{StaticResource BackgroundColorTier1}" />
+    <SolidColorBrush x:Key="BackgroundTier2Brush" Color="{StaticResource BackgroundColorTier2}" />
+    <SolidColorBrush x:Key="BackgroundTier3Brush" Color="{StaticResource BackgroundColorTier3}" />
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}" />
+    <SolidColorBrush x:Key="ForegroundInvertedBrush" Color="{StaticResource ForegroundInvertedColor}" />
+    <SolidColorBrush x:Key="UltimativeControlActivedBrush" Color="{StaticResource UltimativeControlActivedColor}"/>
+    <SolidColorBrush x:Key="UltimativeForegroundBrush" Color="{StaticResource UltimativeForegroundColor}"/>
+    <SolidColorBrush x:Key="UltimativeRadioButtonUnselectedBrush">Gray</SolidColorBrush>
+    <SolidColorBrush x:Key="UltimativeRadioButtonSelectedBrush">Black</SolidColorBrush>
+</ResourceDictionary>

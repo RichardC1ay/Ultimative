@@ -1,0 +1,131 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
+                    xmlns:universal="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
+                    xmlns:muxc="http://schemas.modernwpf.com/2019"
+                    xmlns:wpfcontrols="using:Microsoft.Toolkit.Wpf.UI.Controls">
+    <Style x:Key="MainWindowSideOptions"
+           TargetType="ContentPresenter">
+        <Setter Property="Content">
+            <Setter.Value>
+                <StackPanel Grid.Row="1">
+                    <RadioButton Style="{DynamicResource USideOptionsButton}"
+                                 Background="#0000"
+                                 x:Name="SideOptionLaunchPageBtn"
+                                 Cursor="Hand">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Viewbox Width="18"
+                                     Height="18">
+                                <Path Data="{DynamicResource SvgIconGamepad}"
+                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
+                                      x:Name="SvgIconLaunchGame" />
+                            </Viewbox>
+                            <TextBlock Text="Launcher"
+                                       Style="{DynamicResource SideOptionsTextBlock}" />
+                        </StackPanel>
+                        <universal:FrameAssist.FrameContent>
+                            <mclpages:MclPageLauncher />
+                        </universal:FrameAssist.FrameContent>
+                    </RadioButton>
+                    <RadioButton Style="{DynamicResource USideOptionsButton}"
+                                 Background="#0000"
+                                 x:Name="SideOptionAccountSwitchBtn"
+                                 Cursor="Hand">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Viewbox Width="18"
+                                     Height="18">
+                                <Path Data="{DynamicResource SvgIconGroup}"
+                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
+                                      x:Name="SvgIconAccountManagement" />
+                            </Viewbox>
+                            <TextBlock Text="Accounts"
+                                       Style="{DynamicResource SideOptionsTextBlock}" />
+                        </StackPanel>
+                        <universal:FrameAssist.FrameContent>
+                            <mclpages:MclPageAccountManager />
+                        </universal:FrameAssist.FrameContent>
+                    </RadioButton>
+                    <RadioButton Style="{DynamicResource USideOptionsButton}"
+                                 Background="#0000"
+                                 x:Name="SideOptionVersionControlBtn"
+                                 Cursor="Hand">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Viewbox Width="18"
+                                     Height="18">
+                                <Path Data="{DynamicResource SvgIconAllInbox}"
+                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
+                                      x:Name="SvgIconVersionControl" />
+                            </Viewbox>
+                            <TextBlock Text="Versions"
+                                       Style="{DynamicResource SideOptionsTextBlock}" />
+                        </StackPanel>
+                        <universal:FrameAssist.FrameContent>
+                            <mclpages:MclPageVersionManager />
+                        </universal:FrameAssist.FrameContent>
+                    </RadioButton>
+                    <RadioButton Style="{DynamicResource USideOptionsButton}"
+                                 Background="#0000"
+                                 x:Name="SideOptionSettingsBtn"
+                                 Cursor="Hand">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Viewbox Width="18"
+                                     Height="18">
+                                <Path Data="{DynamicResource SvgIconSettings}"
+                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
+                                      x:Name="SvgIconSettings" />
+                            </Viewbox>
+                            <TextBlock Text="Settings"
+                                       Style="{DynamicResource SideOptionsTextBlock}" />
+                        </StackPanel>
+                        <universal:FrameAssist.FrameContent>
+                            <mclpages:MclPageSettings />
+                        </universal:FrameAssist.FrameContent>
+                    </RadioButton>
+                    <RadioButton Style="{DynamicResource USideOptionsButton}"
+                                 Background="#0000"
+                                 x:Name="SideOptionAboutBtn"
+                                 Cursor="Hand">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                            <Viewbox Width="18"
+                                     Height="18">
+                                <Path Data="{DynamicResource SvgIconInfo}"
+                                      Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
+                                      x:Name="SvgIconAbout" />
+                            </Viewbox>
+                            <TextBlock Text="About"
+                                       Style="{DynamicResource SideOptionsTextBlock}" />
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BootstrapperQuickAccess"
+           TargetType="ContentPresenter">
+        <Setter Property="Content">
+            <Setter.Value>
+                <Grid>
+                    <Button Style="{StaticResource AccentButtonStyle}"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Stretch"
+                            Height="32"
+                            Margin="15"
+                            Foreground="{DynamicResource ForegroundInvertedBrush}">
+                        <TextBlock Text="Quick Start"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   FontSize="12" />
+                    </Button>
+                </Grid>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
