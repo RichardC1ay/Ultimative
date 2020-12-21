@@ -3,39 +3,41 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:s="clr-namespace:System;assembly=mscorlib"
       xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
       xmlns:mclconts="clr-namespace:Ultimative.MCL.Controls"
       xmlns:controls="clr-namespace:Ultimative.Controls;assembly=Ultimative.Universal"
       xmlns:ultimative="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
       xmlns:muxc="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
+      KeepAlive="True"
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="PageSetAbout">
 
     <controls:AnimatedScrollViewer VerticalScrollBarVisibility="Hidden">
         <StackPanel Margin="30,12">
-            <HeaderedContentControl Style="{DynamicResource HorizontalHeaderInfoStyle}"
-                                    Header="About">
-                Ultimative Minecraft launcher is an open-source and free program.
-                We tried to present users a simple application in different ways
+            <HeaderedContentControl Style="{DynamicResource HorizontalHeaderContentControlStyle}"
+                                    Header="{DynamicResource About_Brief_Name}">
+                <TextBlock Text="{DynamicResource About_Brief_Content}" 
+                           Style="{DynamicResource DescriptionTextBlockStyle}"/>
             </HeaderedContentControl>
             <HeaderedContentControl Style="{DynamicResource HorizontalHeaderContentControlStyle}"
-                                    Header="Repository">
-                <muxc:HyperlinkButton Content="Github repository"
+                                    Header="{DynamicResource About_Repository_Name}">
+                <muxc:HyperlinkButton Content="{DynamicResource About_Repository_Content}"
                                       NavigateUri="https://github.com/RichardC1ay/Ultimative"
-                                      Margin="0,-8,0,0"/>
+                                      Margin="0,-8"/>
             </HeaderedContentControl>
             <HeaderedContentControl Style="{DynamicResource HorizontalHeaderInfoStyle}"
-                                    Header="Author">
+                                    Header="{DynamicResource About_Author_Name}">
                 RichardClay / 沫苍
             </HeaderedContentControl>
             <HeaderedContentControl Style="{DynamicResource HorizontalHeaderInfoStyle}"
-                                    Header="Copyright">
+                                    Header="{DynamicResource About_Copyright_Name}">
                 //
             </HeaderedContentControl>
             <HeaderedContentControl Style="{DynamicResource HorizontalHeaderContentControlStyle}"
-                                    Header="Dependencies">
+                                    Header="{DynamicResource About_Dependencies_Name}">
                 <TextBlock FontSize="14"
                            FontFamily="等线"
                            LineHeight="18">
@@ -44,16 +46,16 @@
                     <Run>ModernWpf (Kinnara)</Run>
                 </TextBlock>
             </HeaderedContentControl>
-            <HeaderedContentControl Style="{DynamicResource HorizontalHeaderInfoStyle}"
-                                    Header="Statement">
-                Minecraft is copyrighted by Mojang AB. We are not responsible for
-                any copyright infringement arising from the use of the software
+            <HeaderedContentControl Style="{DynamicResource HorizontalHeaderContentControlStyle}"
+                                    Header="{DynamicResource About_Statement_Name}">
+                <TextBlock Text="{DynamicResource About_Statement_Content}"
+                           Style="{DynamicResource DescriptionTextBlockStyle}" />
             </HeaderedContentControl>
             <HeaderedContentControl Style="{DynamicResource HorizontalHeaderContentControlStyle}"
-                                    Header="Donate">
+                                    Header="{DynamicResource About_Donate_Name}">
                 <muxc:HyperlinkButton Content="afdian"
                                       NavigateUri="https://afdian.net/@ultimativesoftware"
-                                      Margin="0,-8,0,0" />
+                                      Margin="0,-8" />
             </HeaderedContentControl>
         </StackPanel>
     </controls:AnimatedScrollViewer>

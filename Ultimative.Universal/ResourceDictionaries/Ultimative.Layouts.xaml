@@ -21,7 +21,7 @@
                                    Margin="15,5"/>
 
                         <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
-                                          Margin="30,5"
+                                          Margin="10,5,15,0"
                                           Grid.Row="1" />
                     </Grid>
                 </ControlTemplate>

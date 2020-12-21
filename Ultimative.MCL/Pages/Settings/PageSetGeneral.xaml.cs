@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ultimative.Universal;
 
 namespace Ultimative.MCL.Pages
 {
@@ -23,15 +24,23 @@ namespace Ultimative.MCL.Pages
         public PageSetGeneral()
         {
             InitializeComponent();
+
+            LangComboBox.SelectedItem = AppSettings.DisplayLanguage;
         }
 
         private void LangComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             var _langBox = (ComboBox)sender;
 
-            _langBox.Items.Add("English (English)");
-            _langBox.Items.Add("简体中文 (Simplified Chinese)");
-            _langBox.Items.Add("繁體中文 (Traditional Chinese)");
+            foreach (Language lang in AppSettings.LoadedLanguage)
+            {
+                _langBox.Items.Add(lang);
+            }
+        }
+
+        private void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AppSettings.SetDisplayLanguage(LangComboBox.SelectedItem as Language);
         }
     }
 }

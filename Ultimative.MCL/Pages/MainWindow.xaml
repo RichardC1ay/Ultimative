@@ -16,7 +16,8 @@
         WindowStartupLocation="CenterScreen"
         Background="Black"
         OverridesDefaultStyle="True"
-        UseLayoutRounding="True">
+        UseLayoutRounding="True"
+        Loaded="Window_Loaded">
 
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0,1,0,0"

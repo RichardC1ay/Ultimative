@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ScrollViewer.cs" />
+    <Compile Include="IndependentOptions.cs" />
     <Compile Include="Launch\Account.cs" />
     <Compile Include="Launch\Launcher.ArgumentsHolder.cs" />
     <Compile Include="Launch\Launcher.cs" />
@@ -70,9 +71,6 @@
     <Compile Include="Pages\MainWindow.SideOptions.cs" />
     <Compile Include="Pages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MclPageAbout.xaml.cs">
-      <DependentUpon>MclPageAbout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MclPageAccountManager.xaml.cs">
       <DependentUpon>MclPageAccountManager.xaml</DependentUpon>
@@ -118,7 +116,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\lang.json" />
+    <EmbeddedResource Include="Properties\lang.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Assets\Languages\zh_TW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MclControls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,10 +153,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\MclPageAbout.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

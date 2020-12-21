@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <Grid>
-            <TextBlock Text="Manage your Accounts"
+            <TextBlock Text="{DynamicResource Accounts_Title}"
                        Margin="25,15"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -30,8 +30,8 @@
                     Padding="15,8"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Cursor="Hand">
-                Delete All
+                    Cursor="Hand"
+                    Content="{DynamicResource Accounts_DeleteAll}">
             </Button>
         </Grid>
 

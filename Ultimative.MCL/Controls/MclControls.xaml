@@ -22,7 +22,7 @@
                                       Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
                                       x:Name="SvgIconLaunchGame" />
                             </Viewbox>
-                            <TextBlock Text="Launcher"
+                            <TextBlock Text="{DynamicResource SideOption_Launcher}"
                                        Style="{DynamicResource SideOptionsTextBlock}" />
                         </StackPanel>
                         <universal:FrameAssist.FrameContent>
@@ -41,7 +41,7 @@
                                       Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
                                       x:Name="SvgIconAccountManagement" />
                             </Viewbox>
-                            <TextBlock Text="Accounts"
+                            <TextBlock Text="{DynamicResource SideOption_Accounts}"
                                        Style="{DynamicResource SideOptionsTextBlock}" />
                         </StackPanel>
                         <universal:FrameAssist.FrameContent>
@@ -60,7 +60,7 @@
                                       Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
                                       x:Name="SvgIconVersionControl" />
                             </Viewbox>
-                            <TextBlock Text="Versions"
+                            <TextBlock Text="{DynamicResource SideOption_Versions}"
                                        Style="{DynamicResource SideOptionsTextBlock}" />
                         </StackPanel>
                         <universal:FrameAssist.FrameContent>
@@ -79,7 +79,7 @@
                                       Fill="{DynamicResource UltimativeRadioButtonUnselectedBrush}"
                                       x:Name="SvgIconSettings" />
                             </Viewbox>
-                            <TextBlock Text="Settings"
+                            <TextBlock Text="{DynamicResource SideOption_Setting}"
                                        Style="{DynamicResource SideOptionsTextBlock}" />
                         </StackPanel>
                         <universal:FrameAssist.FrameContent>
@@ -102,7 +102,7 @@
                             Height="32"
                             Margin="15"
                             Foreground="{DynamicResource ForegroundInvertedBrush}">
-                        <TextBlock Text="Quick Start"
+                        <TextBlock Text="{DynamicResource Launcher_QuickStart}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    FontSize="12" />

@@ -11,6 +11,7 @@
                 <modern:ThemeResources />
                 <modern:XamlControlsResources />
                 <ResourceDictionary Source="/Controls/MclControls.xaml"/>
+                <!--ResourceDictionary Source="/Assets/Languages/en_US.xaml" /-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

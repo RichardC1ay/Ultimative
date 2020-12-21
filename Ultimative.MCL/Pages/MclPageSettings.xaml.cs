@@ -25,13 +25,15 @@ namespace Ultimative.MCL.Pages
         {
             InitializeComponent();
 
-            AddMenuItem(typeof(PageSetGeneral), "General");
-            AddMenuItem(typeof(PageSetAppearance), "Appearance");
-            AddMenuItem(typeof(PageSetInternet), "Internet");
-            AddMenuItem(typeof(PageSetLaunch), "Launch");
-            AddMenuItem(typeof(PageSetAbout), "About");
+            AddMenuItem(typeof(PageSetGeneral), "Settings_Navigation_General");
+            AddMenuItem(typeof(PageSetAppearance), "Settings_Navigation_Appearance");
+            AddMenuItem(typeof(PageSetInternet), "Settings_Navigation_Internet");
+            AddMenuItem(typeof(PageSetLaunch), "Settings_Navigation_Launch");
+            AddMenuItem(typeof(PageSetAbout), "Settings_Navigation_About");
 
             ((ModernWpf.Controls.NavigationViewItem)SettingNavigation.MenuItems[0]).IsSelected = true;
+
+            
 
             InitGenralSettings();
             InitAppearanceSettings();
@@ -39,11 +41,14 @@ namespace Ultimative.MCL.Pages
 
         private void AddMenuItem(Type type, string name)
         {
-            SettingNavigation.MenuItems.Add(new ModernWpf.Controls.NavigationViewItem()
+            var viewItem = new ModernWpf.Controls.NavigationViewItem()
             {
-                Content = name,
                 Tag = type
-            });
+            };
+            viewItem.SetResourceReference(
+                ModernWpf.Controls.NavigationViewItem.ContentProperty,
+                name);
+            SettingNavigation.MenuItems.Add(viewItem);
         }
 
         private async void ResetAllSettingsButtonClicked(object sender, RoutedEventArgs e)

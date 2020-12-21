@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
 
         <Grid>
-            <TextBlock Text="Settings"
+            <TextBlock Text="{DynamicResource Settings_Title}"
                        Margin="25,15"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -33,9 +33,8 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Click="ResetAllSettingsButtonClicked"
-                    Cursor="Hand">
-                Reset All Settings
-            </Button>
+                    Cursor="Hand"
+                    Content="{DynamicResource Settings_Reset}" />
         </Grid>
 
         <muxc:NavigationView x:Name="SettingNavigation"

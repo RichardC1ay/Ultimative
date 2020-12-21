@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Ultimative.MCL"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <s:String x:Key="TranslatedLanguageFileProviderName">Richard C1ay</s:String>
+
+    <s:String x:Key="SideOption_Launcher">啓動器</s:String>
+    <s:String x:Key="SideOption_Accounts">賬戶</s:String>
+    <s:String x:Key="SideOption_Versions">版本</s:String>
+    <s:String x:Key="SideOption_Setting">設置</s:String>
+    <s:String x:Key="Launcher_QuickStart">快速啓動</s:String>
+    <s:String x:Key="Accounts_Title">管理你的賬戶</s:String>
+    <s:String x:Key="Accounts_DeleteAll">全部刪除</s:String>
+    <s:String x:Key="Versions_Title">已經安裝的版本</s:String>
+    <s:String x:Key="Versions_InstallNew">安裝新的版本</s:String>
+    <s:String x:Key="Settings_Title">設置</s:String>
+    <s:String x:Key="Settings_Reset">重置所有設定</s:String>
+    <s:String x:Key="Settings_Navigation_General">通用</s:String>
+    <s:String x:Key="Settings_Navigation_Appearance">外觀</s:String>
+    <s:String x:Key="Settings_Navigation_Internet">網路</s:String>
+    <s:String x:Key="Settings_Navigation_Launch">啓動</s:String>
+    <s:String x:Key="Settings_Navigation_About">關於</s:String>
+    <s:String x:Key="CheckForUpdates_Title">檢查更新</s:String>
+    <s:String x:Key="CheckForUpdates_Button">檢查</s:String>
+    <s:String x:Key="AutoUpdate_On">當有更新可用時自動安裝</s:String>
+    <s:String x:Key="AutoUpdate_Off">從不自動更新</s:String>
+    <s:String x:Key="NoUpdatesAvailable">沒有更新的版本</s:String>
+    <s:String x:Key="BranchSelection_Warning">警告！測試版與預覽版可能會修復一些已知的bug並帶來新的功能，但也有可能產生新的錯誤</s:String>
+    <s:String x:Key="UpdateBranch_Master">更新到主要版本</s:String>
+    <s:String x:Key="UpdateBranch_Beta">更新到測試版本</s:String>
+    <s:String x:Key="UpdateBranch_Preview">更新到預覽版本</s:String>
+    <s:String x:Key="Lang_Title">語言</s:String>
+    <s:String x:Key="Lang_DisplayLanguage">顯示語言</s:String>
+    <s:String x:Key="Lang_HelpUsTranslate">將此軟件翻譯至更多語言版本以幫助其全球化</s:String>
+    <s:String x:Key="About_Brief_Name">關於</s:String>
+    <s:String x:Key="About_Brief_Content">UMCL極限啓動器是一款免費且開源的程序，我們希望帶給用戶一個簡潔而功能强大的啓動器 :)</s:String>
+    <s:String x:Key="About_Repository_Name">托管倉庫</s:String>
+    <s:String x:Key="About_Repository_Content">Github 倉庫</s:String>
+    <s:String x:Key="About_Author_Name">作者</s:String>
+    <s:String x:Key="About_Copyright_Name">版權聲明</s:String>
+    <s:String x:Key="About_Dependencies_Name">依賴項</s:String>
+    <s:String x:Key="About_Statement_Name">聲明</s:String>
+    <s:String x:Key="About_Statement_Content">當個創世神的版權歸Mojang AB所有，因使用本軟件所產生的版權糾紛與軟件開發者無關。這個軟件是永久免費的，我們不會向您收取任何費用以激活此軟件，請謹防財產詐騙！</s:String>
+    <s:String x:Key="About_Donate_Name">Donate</s:String>
+</ResourceDictionary>

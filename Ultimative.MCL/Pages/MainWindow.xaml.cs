@@ -56,6 +56,9 @@ namespace Ultimative.MCL
             OnSideOptionChanged(sideOptionLaunchPageBtn, null);
         }
 
-        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            AppSettings.SetDisplayLanguage(AppSettings.LoadedLanguage[0]);
+        }
     }
 }
