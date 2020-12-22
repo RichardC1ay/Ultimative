@@ -6,7 +6,7 @@
       xmlns:s="clr-namespace:System;assembly=mscorlib"
       xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
       xmlns:mclconts="clr-namespace:Ultimative.MCL.Controls"
-      xmlns:controls="clr-namespace:Ultimative.Controls;assembly=Ultimative.Universal"
+      xmlns:controls="clr-namespace:Ultimative.Universal.Controls;assembly=Ultimative.Universal"
       xmlns:ultimative="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
       xmlns:muxc="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"

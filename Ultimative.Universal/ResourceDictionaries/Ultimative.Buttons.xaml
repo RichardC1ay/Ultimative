@@ -143,4 +143,40 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="GroupedRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundTier2Brush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="Background" Background="{DynamicResource BackgroundTier3Brush}">
+                        <Grid>
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                       Foreground="{TemplateBinding Property=Foreground}"
+                                       x:Name="TextContent"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontFamily="等线" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    TargetName="Background"
+                                    Value="{DynamicResource AccentButtonBackground}" />
+                            <Setter TargetName="TextContent"
+                                    Property="Foreground"
+                                    Value="{DynamicResource ForegroundInvertedBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

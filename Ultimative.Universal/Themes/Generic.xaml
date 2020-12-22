@@ -1,56 +1,7 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Ultimative.Controls"
-    xmlns:universal="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal">
-
-    <Style TargetType="controls:UltimativeApplicationTitle">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:UltimativeApplicationTitle">
-                    <Grid Background="#FFEBEBEB"
-                          x:Name="TemplateRoot">
-                        <TextBlock HorizontalAlignment="Center" Text="Ultimative" VerticalAlignment="Center"/>
-                        <StackPanel HorizontalAlignment="Right"
-                                    Orientation="Horizontal">
-                            <Button Style="{DynamicResource UTitleButton}"
-                                    x:Name="ButtonAlwaysOnTop">
-                                <Viewbox Width="16" 
-                                         Height="16" 
-                                         Margin="0,0,2,0">
-                                    <Path Data="{DynamicResource SvgIconLockOpen}" Fill="Black" x:Name="ButtonSvgAlwaysOnTop"/>
-                                </Viewbox>
-                            </Button>
-                            <Button Style="{DynamicResource UTitleButton}" 
-                                    x:Name="ButtonMinimize">
-                                <Viewbox Width="20" 
-                                         Height="20"
-                                         Margin="-4,-8,0,0">
-                                    <Path Data="{DynamicResource SvgIconWindowMinimize}" Fill="{DynamicResource UltimativeForegroundBrush}"/>
-                                </Viewbox>
-                            </Button>
-                            <Button Style="{DynamicResource UTitleButton}"
-                                    x:Name="ButtonMaximize">
-                                <Viewbox Width="16" 
-                                         Height="16"
-                                         Margin="-4,-4,0,0">
-                                    <Path Data="{DynamicResource SvgIconFullscreen}" Fill="{DynamicResource UltimativeForegroundBrush}"/>
-                                </Viewbox>
-                            </Button>
-                            <Button Style="{DynamicResource UTitleButton}"
-                                    x:Name="ButtonClose">
-                                <Viewbox Width="16" 
-                                         Height="16"
-                                         Margin="-4,-4,0,0">
-                                    <Path Data="{DynamicResource SvgIconClose}" Fill="{DynamicResource UltimativeForegroundBrush}"/>
-                                </Viewbox>
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Ultimative.Universal.Controls"
+                    xmlns:universal="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal">
 
     <Style TargetType="{x:Type controls:AnimatedScrollViewer}">
         <Setter Property="Template">

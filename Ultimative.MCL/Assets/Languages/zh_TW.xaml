@@ -11,6 +11,7 @@
     <s:String x:Key="Launcher_QuickStart">快速啓動</s:String>
     <s:String x:Key="Accounts_Title">管理你的賬戶</s:String>
     <s:String x:Key="Accounts_DeleteAll">全部刪除</s:String>
+    <s:String x:Key="Accounts_Create">新建賬戶</s:String>
     <s:String x:Key="Versions_Title">已經安裝的版本</s:String>
     <s:String x:Key="Versions_InstallNew">安裝新的版本</s:String>
     <s:String x:Key="Settings_Title">設置</s:String>

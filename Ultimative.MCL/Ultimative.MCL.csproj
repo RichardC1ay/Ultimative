@@ -61,13 +61,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Launch\Account.xaml.cs">
+      <DependentUpon>Account.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="IndependentOptions.cs" />
-    <Compile Include="Launch\Account.cs" />
     <Compile Include="Launch\Launcher.ArgumentsHolder.cs" />
     <Compile Include="Launch\Launcher.cs" />
     <Compile Include="Launch\GameHandle.cs" />
     <Compile Include="Launch\Version.cs" />
+    <Compile Include="MclCore.cs" />
+    <Compile Include="Pages\Dialogs\DialogCreateAccount.xaml.cs">
+      <DependentUpon>DialogCreateAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainWindow.SideOptions.cs" />
     <Compile Include="Pages\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -76,8 +82,6 @@
       <DependentUpon>MclPageAccountManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MclPageLauncher.cs" />
-    <Compile Include="Pages\MclPageSettings.Appearance.cs" />
-    <Compile Include="Pages\MclPageSettings.General.cs" />
     <Compile Include="Pages\MclPageSettings.xaml.cs">
       <DependentUpon>MclPageSettings.xaml</DependentUpon>
     </Compile>
@@ -140,9 +144,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Launch\Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MclControls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Dialogs\DialogCreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MclPageAccountManager.xaml">
       <SubType>Designer</SubType>

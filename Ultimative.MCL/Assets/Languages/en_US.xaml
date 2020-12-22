@@ -12,7 +12,9 @@
     <s:String x:Key="Launcher_QuickStart">Quick Start</s:String>
     <s:String x:Key="Accounts_Title">Manage your Accounts</s:String>
     <s:String x:Key="Accounts_DeleteAll">Delete All</s:String>
+    <s:String x:Key="Accounts_Create">Create</s:String>
     <s:String x:Key="Versions_Title">Installed versions</s:String>
+    <s:String x:Key="Versions_DeleteAll">Delete All</s:String>
     <s:String x:Key="Versions_InstallNew">Install new version</s:String>
     <s:String x:Key="Settings_Title">Settings</s:String>
     <s:String x:Key="Settings_Reset">Reset all settings</s:String>

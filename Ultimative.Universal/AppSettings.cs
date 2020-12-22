@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,23 +14,40 @@ namespace Ultimative.Universal
 {
     public static class AppSettings
     {
-        public static bool AlwaysOnTop { get; set; }
+        private static bool _alwaysOnTop = false;
+
+        
         public static bool WindowMaximized { get; set; }
         public static Grid RootPanel { get; set; }
         public static bool AutoUpdate { get; set; }
         public static List<Language> LoadedLanguage { get; private set; }
         public static Language DisplayLanguage { get; private set; }
 
-#pragma warning disable CS0067 // 从不使用事件“AppSettings.StaticPropertyChanged”
-        public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
-#pragma warning restore CS0067 // 从不使用事件“AppSettings.StaticPropertyChanged”
+        public static bool AlwaysOnTop
+        {
+            get
+            {
+                return _alwaysOnTop;
+            }
+            set
+            {
+                _alwaysOnTop = value;
+                NotifyStaticPropertyChanged();
+            }
+        }
 
         static AppSettings()
         {
-            AlwaysOnTop = false;
             WindowMaximized = false;
             AutoUpdate = false;
             LoadedLanguage = new List<Language>();
+        }
+
+        public static event PropertyChangedEventHandler StaticPropertyChanged;
+
+        private static void NotifyStaticPropertyChanged([CallerMemberName] string name = null)
+        {
+            StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(name));
         }
 
         public static Language GetDisplayLanguage()

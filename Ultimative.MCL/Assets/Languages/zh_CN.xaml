@@ -12,8 +12,10 @@
     <s:String x:Key="SideOption_Setting">设置</s:String>
     <s:String x:Key="Launcher_QuickStart">快速启动</s:String>
     <s:String x:Key="Accounts_Title">管理你的账户</s:String>
+    <s:String x:Key="Accounts_Create">新建账户</s:String>
     <s:String x:Key="Accounts_DeleteAll">删除全部</s:String>
     <s:String x:Key="Versions_Title">已安装的版本</s:String>
+    <s:String x:Key="Versions_DeleteAll">全部移除</s:String>
     <s:String x:Key="Versions_InstallNew">安装新的版本</s:String>
     <s:String x:Key="Settings_Title">设置</s:String>
     <s:String x:Key="Settings_Reset">重置所有设置</s:String>

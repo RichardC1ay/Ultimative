@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:controls="clr-namespace:Ultimative.Controls;assembly=Ultimative.Universal"
+      xmlns:controls="clr-namespace:Ultimative.Universal.Controls;assembly=Ultimative.Universal"
       xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
       xmlns:mcl="clr-namespace:Ultimative.MCL"
       xmlns:muxc="http://schemas.modernwpf.com/2019"
@@ -12,7 +12,7 @@
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="PageSetGeneral">
-    <controls:AnimatedScrollViewer VerticalScrollBarVisibility="Hidden">
+    <controls:AnimatedScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="30,12">
             <HeaderedContentControl Header="{DynamicResource CheckForUpdates_Title}"
                                     FontSize="14">

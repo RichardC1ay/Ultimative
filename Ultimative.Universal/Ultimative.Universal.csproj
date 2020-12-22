@@ -56,6 +56,9 @@
   <ItemGroup>
     <Compile Include="Controls\AnimatedListBox.cs" />
     <Compile Include="Controls\AnimatedScrollViewer.cs" />
+    <Compile Include="Controls\AppTopBar.xaml.cs">
+      <DependentUpon>AppTopBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Convertor\InverseBooleanConvertor.cs" />
     <Compile Include="ScrollViewerAssist.cs" />
     <Compile Include="TextFieldAssist.cs" />
@@ -64,6 +67,10 @@
     <Compile Include="Utilities\TemplateHelper.cs" />
     <Compile Include="Utilities\ValuePackaged.cs" />
     <Compile Include="Utilities\WindowAccentCompositor.cs" />
+    <Page Include="Controls\AppTopBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceDictionaries\Ultimative.Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,7 +135,6 @@
     <Compile Include="Applications\Function.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="ButtonAssist.cs" />
-    <Compile Include="Controls\UltimativeApplicationTitle.cs" />
     <Compile Include="FrameAssist.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +162,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ModernWpfUI">
+      <Version>0.9.2</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>

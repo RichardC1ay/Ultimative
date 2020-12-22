@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ultimative.MCL.Launch;
+using Ultimative.MCL.Pages.Dialogs;
 
 namespace Ultimative.MCL.Pages
 {
@@ -23,6 +25,31 @@ namespace Ultimative.MCL.Pages
         public MclPageAccountManager()
         {
             InitializeComponent();
+        }
+
+        private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            var _dialog = new DialogCreateAccount();
+
+            await _dialog.ShowAsync();
+        }
+
+        private async void DeleteAllButton_Click(object sender, RoutedEventArgs e)
+        {
+            var _dialog = new ModernWpf.Controls.ContentDialog()
+            {
+                Title = "Delete all saved accounts?",
+                Content = "This operation is not reversible!",
+                PrimaryButtonText = "Confirm",
+                CloseButtonText = "Cancel",
+                DefaultButton = ModernWpf.Controls.ContentDialogButton.Primary
+            };
+            var result = await _dialog.ShowAsync();
+
+            if(result == ModernWpf.Controls.ContentDialogResult.Primary)
+            {
+
+            }
         }
     }
 }

@@ -32,11 +32,6 @@ namespace Ultimative.MCL.Pages
             AddMenuItem(typeof(PageSetAbout), "Settings_Navigation_About");
 
             ((ModernWpf.Controls.NavigationViewItem)SettingNavigation.MenuItems[0]).IsSelected = true;
-
-            
-
-            InitGenralSettings();
-            InitAppearanceSettings();
         }
 
         private void AddMenuItem(Type type, string name)

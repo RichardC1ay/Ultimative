@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
 
-namespace Ultimative.Controls
+namespace Ultimative.Universal.Controls
 {
 [TemplatePart(Name = "PART_AniVerticalScrollBar", Type = typeof(ScrollBar))]
 [TemplatePart(Name = "PART_AniHorizontalScrollBar", Type = typeof(ScrollBar))]
