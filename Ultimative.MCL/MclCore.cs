@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,9 +12,10 @@ namespace Ultimative.MCL
 {
     public static class MclCore
     {
-        private static List<Account> _accounts;
+        private static ObservableCollection<Account> _accounts;
+        private static Account _usingAccount;
 
-        public static List<Account> Accounts
+        public static ObservableCollection<Account> Accounts
         {
             get { return _accounts; }
             set
@@ -23,11 +25,60 @@ namespace Ultimative.MCL
             }
         }
 
+        public static Account UsingAccount
+        {
+            get { return _usingAccount; }
+            set
+            {
+                if(_usingAccount != null)
+                {
+                    if (_usingAccount == value)
+                        return;
+
+                    _usingAccount.IsUsing = false;
+                }
+                _usingAccount = value;
+
+                if(value != null)
+                    _usingAccount.IsUsing = true;
+            }
+        }
+
         static MclCore()
         {
-            _accounts = new List<Account>();
+            _accounts = new ObservableCollection<Account>();
+            
+        }
 
-            Accounts.Add(new Account(AuthMode.Offline, "Test", ""));
+        public static bool IsNameExists(string nameOrEmail)
+        {
+            if (nameOrEmail == null || nameOrEmail.Equals(""))
+                return false;
+
+            foreach (Account account in _accounts)
+            {
+                if (nameOrEmail.Equals(account.NameOrEmail))
+                    return true;
+            }
+            return false;
+        }
+
+        public static void RemoveAllAccounts()
+        {
+            MclCore.UsingAccount = null;
+            MclCore.Accounts.Clear();
+            NotifyStaticPropertyChanged();
+        }
+
+        public static void RemoveAccount(Account account)
+        {    
+            Accounts.Remove(account);
+
+            if (UsingAccount == account)
+            {
+                System.Diagnostics.Debug.WriteLine(Accounts.First().NameOrEmail);
+                UsingAccount = Accounts.First();
+            }
         }
 
         public static event PropertyChangedEventHandler StaticPropertyChanged;

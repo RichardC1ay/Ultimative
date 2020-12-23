@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ultimative.MCL.Pages.Dialogs;
 
 namespace Ultimative.MCL.Launch
 {
@@ -25,6 +27,7 @@ namespace Ultimative.MCL.Launch
         private string nameOrEmail = "NoName";
         private string password;
         private string token;
+        private bool isUsing = false;
 
         public Account()
         {
@@ -81,7 +84,50 @@ namespace Ultimative.MCL.Launch
             }
         }
 
+        public bool IsUsing
+        {
+            get { return isUsing; }
+            set
+            {
+                isUsing = value;
+                ItemIsSelected.IsChecked = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsUsing)));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void ItemSelectToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            MclCore.UsingAccount = this;
+        }
+
+        private void ItemSelectToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MclCore.UsingAccount = null;
+        }
+
+        private async void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            await new DialogEditAccount(this).ShowAsync();
+        }
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var result = await new ContentDialog()
+            {
+                Title = "This operation is not reversible!",
+                Content = NameOrEmail + " will be deleted permanently.",
+                PrimaryButtonText = "Confirm",
+                CloseButtonText = "Close",
+                DefaultButton = ContentDialogButton.Primary
+            }.ShowAsync();
+
+            if(result == ContentDialogResult.Primary)
+            {
+                MclCore.RemoveAccount(this);
+            }
+        }
     }
 
     public enum AuthMode

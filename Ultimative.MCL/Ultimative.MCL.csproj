@@ -71,8 +71,8 @@
     <Compile Include="Launch\GameHandle.cs" />
     <Compile Include="Launch\Version.cs" />
     <Compile Include="MclCore.cs" />
-    <Compile Include="Pages\Dialogs\DialogCreateAccount.xaml.cs">
-      <DependentUpon>DialogCreateAccount.xaml</DependentUpon>
+    <Compile Include="Pages\Dialogs\DialogEditAccount.xaml.cs">
+      <DependentUpon>DialogEditAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainWindow.SideOptions.cs" />
     <Compile Include="Pages\MainWindow.xaml.cs">
@@ -152,7 +152,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\Dialogs\DialogCreateAccount.xaml">
+    <Page Include="Pages\Dialogs\DialogEditAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

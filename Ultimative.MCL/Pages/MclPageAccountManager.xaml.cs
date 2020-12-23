@@ -25,11 +25,14 @@ namespace Ultimative.MCL.Pages
         public MclPageAccountManager()
         {
             InitializeComponent();
+
+            MclCore.Accounts.CollectionChanged += delegate { ItemsControl.Items.Refresh(); };
+
         }
 
         private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            var _dialog = new DialogCreateAccount();
+            var _dialog = new DialogEditAccount();
 
             await _dialog.ShowAsync();
         }
@@ -48,7 +51,7 @@ namespace Ultimative.MCL.Pages
 
             if(result == ModernWpf.Controls.ContentDialogResult.Primary)
             {
-
+                MclCore.RemoveAllAccounts();
             }
         }
     }
