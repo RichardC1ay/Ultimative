@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ultimative="clr-namespace:Ultimative.Universal"
+                    xmlns:muxc="http://schemas.modernwpf.com/2019">
+
+    <Style x:Key="FlatCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid x:Name="RootGrid"
+                          Background="Transparent">
+                        <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" 
+                                   Margin="10,0,0,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left" 
+                                   FontSize="12"
+                                   FontFamily="等线"/>
+                        <Viewbox Height="14"
+                                 Width="14"
+                                 HorizontalAlignment="Right"
+                                 Margin="0,0,10,0"
+                                 VerticalAlignment="Center"
+                                 Visibility="Collapsed"
+                                 x:Name="CheckSymbolIcon">
+                            <muxc:SymbolIcon Symbol="Accept"
+                                             Foreground="DodgerBlue" />
+                        </Viewbox>
+                        
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Visibility" TargetName="CheckSymbolIcon" Value="Visible" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsMouseCaptured" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="RootGrid" Value="#21000000" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsMouseCaptured" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="RootGrid" Value="#35000000" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

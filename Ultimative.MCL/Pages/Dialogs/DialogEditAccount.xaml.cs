@@ -122,5 +122,15 @@ namespace Ultimative.MCL.Pages.Dialogs
                 ? Visibility.Visible
                 : Visibility.Collapsed;
         }
+
+        private void PasswdBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _newPassword = PasswdBox.Text;
+
+            PasswordRequiredTextBlock.Visibility =
+                _newPassword == "" && PasswordHeaderContent.IsEnabled
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+        }
     }
 }

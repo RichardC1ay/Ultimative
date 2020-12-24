@@ -20,7 +20,7 @@
                 <muxc:SimpleStackPanel Spacing="5">
                     <TextBox x:Name="NameBox"
                              TextChanged="NameBox_TextChanged" />
-                    <TextBlock Style="{StaticResource DescriptionTextBlockStyle}"
+                    <TextBlock FontFamily="等线"
                                Visibility="Collapsed"
                                LineHeight="12"
                                FontSize="12"
@@ -31,8 +31,20 @@
                 </muxc:SimpleStackPanel>
             </HeaderedContentControl>
             <HeaderedContentControl Header="Password"
+                                    x:Name="PasswordHeaderContent"
                                     IsEnabled="{Binding IsChecked, Converter={StaticResource InverseBooleanConvertor}, ElementName=OfflineRadioButton}">
-                <TextBox x:Name="PasswdBox" />
+                <muxc:SimpleStackPanel Spacing="5">
+                    <TextBox x:Name="PasswdBox"
+                             TextChanged="PasswdBox_TextChanged" />
+                    <TextBlock FontFamily="等线"
+                               Visibility="Collapsed"
+                               LineHeight="12"
+                               FontSize="12"
+                               FontWeight="Bold"
+                               Foreground="Red"
+                               Text="Password required!"
+                               x:Name="PasswordRequiredTextBlock" />
+                </muxc:SimpleStackPanel>
             </HeaderedContentControl>
             <HeaderedContentControl Header="Auth mode">
                 <Border BorderBrush="Gray"

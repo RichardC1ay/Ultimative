@@ -12,5 +12,6 @@
         <!--ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.ModernUI.xaml" /-->
         <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Layouts.xaml" />
         <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.Convertors.xaml" />
+        <ResourceDictionary Source="/Ultimative.Universal;component/ResourceDictionaries/Ultimative.CheckBoxes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

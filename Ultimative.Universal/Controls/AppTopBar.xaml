@@ -9,7 +9,7 @@
              xmlns:primitives="clr-namespace:ModernWpf.Controls.Primitives;assembly=ModernWpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="{DynamicResource BackgroundTier2Brush}"
+    <Grid Background="{DynamicResource BackgroundTier3Brush}"
           Height="26">
         <TextBlock HorizontalAlignment="Center"
                    Text="Ultimative"
