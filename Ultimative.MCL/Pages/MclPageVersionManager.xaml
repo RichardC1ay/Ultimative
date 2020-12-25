@@ -10,45 +10,5 @@
       d:DesignWidth="800"
       Title="MclPageVersionManager">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="120" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Grid>
-            <TextBlock Text="{DynamicResource Versions_Title}"
-                       Margin="25,15"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       FontSize="24" />
-            <muxc:SimpleStackPanel Orientation="Horizontal"
-                                   Margin="20,15"
-                                   HorizontalAlignment="Right"
-                                   VerticalAlignment="Center"
-                                   Spacing="10">
-                <Button Style="{StaticResource UFlatButton}"
-                        Foreground="#0C0"
-                        FontSize="14"
-                        Background="{DynamicResource BackgroundTier3Brush}"
-                        Padding="15,8"
-                        Cursor="Hand"
-                        Content="{DynamicResource Versions_InstallNew}" />
-                <Button Style="{StaticResource UFlatButton}"
-                        Foreground="Red"
-                        FontSize="14"
-                        Background="{DynamicResource BackgroundTier3Brush}"
-                        Padding="15,8"
-                        Cursor="Hand"
-                        Content="{DynamicResource Versions_DeleteAll}" />
-            </muxc:SimpleStackPanel>
-
-
-        </Grid>
-
-        <Rectangle Grid.Row="1"
-                   VerticalAlignment="Top"
-                   Height="1"
-                   Fill="#1E000000" />
-    </Grid>
+    <muxc:Frame x:Name="ContentFrame"/>
 </Page>

@@ -18,20 +18,24 @@ using Ultimative.Utilities;
 namespace Ultimative.MCL.Pages
 {
     /// <summary>
-    /// MclPageVersionManager.xaml 的交互逻辑
+    /// VersionList.xaml 的交互逻辑
     /// </summary>
-    public partial class MclPageVersionManager : Page
+    public partial class VersionList : Page
     {
-        public static ModernWpf.Controls.Frame StaticFrame { get; private set; }
+        public ModernWpf.Controls.Frame ParentFrame { get; set; }
 
-        public MclPageVersionManager()
+        public VersionList()
         {
             InitializeComponent();
+        }
 
-            StaticFrame = ContentFrame;
-            ContentFrame.Navigate(typeof(VersionList),
-                null,
-                new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft });
+        private void InstallNew_Click(object sender, RoutedEventArgs e)
+        {
+            MclPageVersionManager.StaticFrame.Navigate(
+                typeof(InstallGame), 
+                null, 
+                new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
+            
         }
     }
 }

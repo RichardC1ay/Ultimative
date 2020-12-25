@@ -108,6 +108,12 @@
     <Compile Include="Pages\Settings\PageSetLaunch.xaml.cs">
       <DependentUpon>PageSetLaunch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Versions\InstallGame.xaml.cs">
+      <DependentUpon>InstallGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Versions\VersionList.xaml.cs">
+      <DependentUpon>VersionList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -202,6 +208,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Settings\PageSetLaunch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Versions\InstallGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Versions\VersionList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

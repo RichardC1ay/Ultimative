@@ -10,17 +10,73 @@ namespace Ultimative.MCL
 {
     public static class IndependentOptions
     {
-        private static bool _autoUpdate;
+        private static bool autoUpdate;
+        private static bool selectAccountBeforeLaunch;
+        private static bool selectAccBeforeLaunchQs;
+        private static bool customQuickStart;
+        private static bool useQuickStart;
 
         public static bool AutoUpdate
         {
             get
             {
-                return _autoUpdate;
+                return autoUpdate;
             }
             set
             {
-                _autoUpdate = value;
+                autoUpdate = value;
+                NotifyStaticPropertyChanged();
+            }
+        }
+
+        public static bool SelectAccountBeforeLaunch
+        {
+            get
+            {
+                return selectAccountBeforeLaunch;
+            }
+            set
+            {
+                selectAccountBeforeLaunch = value;
+                NotifyStaticPropertyChanged();
+            }
+        }
+
+        public static bool SelectAccBeforeLaunchQs
+        {
+            get
+            {
+                return selectAccBeforeLaunchQs;
+            }
+            set
+            {
+                selectAccBeforeLaunchQs = value;
+                NotifyStaticPropertyChanged();
+            }
+        }
+
+        public static bool CustomQuickStart
+        {
+            get
+            {
+                return customQuickStart;
+            }
+            set
+            {
+                customQuickStart = value;
+                NotifyStaticPropertyChanged();
+            }
+        }
+
+        public static bool UseQuickStart
+        {
+            get
+            {
+                return useQuickStart;
+            }
+            set
+            {
+                useQuickStart = value;
                 NotifyStaticPropertyChanged();
             }
         }

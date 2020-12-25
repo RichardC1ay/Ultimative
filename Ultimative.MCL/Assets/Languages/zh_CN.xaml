@@ -36,6 +36,21 @@
     <s:String x:Key="Lang_Title">语言</s:String>
     <s:String x:Key="Lang_DisplayLanguage">显示语言</s:String>
     <s:String x:Key="Lang_HelpUsTranslate">将此软件翻译至更多语言以帮助其完成全球化</s:String>
+    <s:String x:Key="Preselection_Title">资源预选</s:String>
+    <s:String x:Key="Preselection_SelectAccountBeforeLaunch_On">在账户设置中选择账户</s:String>
+    <s:String x:Key="Preselection_SelectAccountBeforeLaunch_Off">在启动时选择账户</s:String>
+    <s:String x:Key="GlobalLaunchOption_Title">全局启动设置</s:String>
+    <s:String x:Key="GlobalLaunchOption_JavaPath">Java路径</s:String>
+    <s:String x:Key="GlobalLaunchOption_Memory">内存</s:String>
+    <s:String x:Key="GlobalLaunchOption_Dimension">窗口分辨率</s:String>
+    <s:String x:Key="GlobalLaunchOption_DoNotCheckFiles">启动前不检查文件完整性</s:String>
+    <s:String x:Key="GlobalLaunchOption_DoNotCompleteFiles">不自动补全资源文件</s:String>
+    <s:String x:Key="GlobalLaunchOption_ShowDiagnosticLog">显示调试信息窗口</s:String>
+    <s:String x:Key="QuickStart_Title">快速启动</s:String>
+    <s:String x:Key="QuickStart_Disable">禁用快速启动</s:String>
+    <s:String x:Key="QuickStart_Enable">启用快速启动</s:String>
+    <s:String x:Key="QuickStart_UsePreviousScheme">按上一次启动方案进行游戏</s:String>
+    <s:String x:Key="QuickStart_UseCustomScheme">使用自定义启动方案</s:String>
     <s:String x:Key="About_Brief_Name">简介</s:String>
     <s:String x:Key="About_Brief_Content">UMCL极限启动器是一款免费且开源的程序，我们希望带给用户一个简洁而功能强大的启动器 :)</s:String>
     <s:String x:Key="About_Repository_Name">托管仓库</s:String>
@@ -46,4 +61,11 @@
     <s:String x:Key="About_Statement_Name">声明</s:String>
     <s:String x:Key="About_Statement_Content">我的世界(Minecraft)的版权归Mojang AB工作室所有，因使用本软件所带来的版权纠纷与软件开发者无关。这个软件是永久免费的，我们不会向您收取任何费用以激活此软件，请谨防财产诈骗！</s:String>
     <s:String x:Key="About_Donate_Name">捐赠我们</s:String>
+
+    <s:String x:Key="Confirm">确认</s:String>
+    <s:String x:Key="Width">宽度</s:String>
+    <s:String x:Key="Height">高度</s:String>
+    <s:String x:Key="Fullscreen">全屏</s:String>
+    <s:String x:Key="Minimum">最小值</s:String>
+    <s:String x:Key="Maximum">最大值</s:String>
 </ResourceDictionary>

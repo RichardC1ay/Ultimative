@@ -18,11 +18,6 @@ namespace Ultimative.MCL
         public static ObservableCollection<Account> Accounts
         {
             get { return _accounts; }
-            set
-            {
-                _accounts = value;
-                NotifyStaticPropertyChanged();
-            }
         }
 
         public static Account UsingAccount
@@ -44,10 +39,14 @@ namespace Ultimative.MCL
             }
         }
 
+        public static Launcher GameLauncher { get; private set; }
+
         static MclCore()
         {
             _accounts = new ObservableCollection<Account>();
-            
+            GameLauncher = new Launcher();
+
+            IndependentOptions.SelectAccountBeforeLaunch = false;
         }
 
         public static bool IsNameExists(string nameOrEmail)

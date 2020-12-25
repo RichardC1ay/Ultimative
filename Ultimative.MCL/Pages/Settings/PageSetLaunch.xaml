@@ -3,12 +3,266 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Ultimative.MCL.Pages"
+      xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
+      xmlns:controls="clr-namespace:Ultimative.Universal.Controls;assembly=Ultimative.Universal"
+      xmlns:launch="clr-namespace:Ultimative.MCL.Launch"
+      xmlns:mcl="clr-namespace:Ultimative.MCL"
+      xmlns:muxc="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageSetLaunch">
 
-    <Grid>
-        
-    </Grid>
+    <controls:AnimatedScrollViewer>
+        <StackPanel Margin="30,12">
+            <HeaderedContentControl FontSize="14"
+                                    Header="{DynamicResource Preselection_Title}">
+                <muxc:SimpleStackPanel Spacing="5">
+                    <muxc:ToggleSwitch OffContent="{DynamicResource Preselection_SelectAccountBeforeLaunch_Off}"
+                                       OnContent="{DynamicResource Preselection_SelectAccountBeforeLaunch_On}"
+                                       x:Name="SelectAccountWhenLaunchToggle"
+                                       Margin="10,0"
+                                       IsOn="{Binding Path=(mcl:IndependentOptions.SelectAccountBeforeLaunch), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    
+                </muxc:SimpleStackPanel>
+            </HeaderedContentControl>
+            <HeaderedContentControl FontSize="14"
+                                    Header="{DynamicResource GlobalLaunchOption_Title}">
+                <muxc:SimpleStackPanel Spacing="5">
+                    <Expander Background="{DynamicResource BackgroundTier2Brush}"
+                              Padding="10,0">
+                        <Expander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{DynamicResource GlobalLaunchOption_JavaPath}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="10" />
+                                <Rectangle Grid.Column="1"
+                                           HorizontalAlignment="Left"
+                                           Width="1"
+                                           Margin="0,8"
+                                           Fill="#35000000" />
+                                <TextBlock Text="&lt;No selection>"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Grid.Column="1"
+                                           Margin="10"
+                                           Foreground="Gray" />
+                            </Grid>
+                        </Expander.Header>
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2">
+                            <muxc:RadioButtons Margin="40,0,0,5">
+                                <RadioButton Content="Path1" />
+                                <RadioButton Content="Path2" />
+                            </muxc:RadioButtons>
+                            <Rectangle VerticalAlignment="Top"
+                                       Height="1"
+                                       Margin="0,8"
+                                       Fill="#35000000" />
+                            <Grid Margin="10,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Did not find Java on your computer?"
+                                           VerticalAlignment="Center" />
+                                <Button Style="{DynamicResource AccentButtonStyle}"
+                                        Content="Rescan"
+                                        FontSize="12"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right" />
+                            </Grid>
+                            <Grid Margin="10,0,10,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Have not installed Java yet?"
+                                           Margin="0,10" />
+                                <muxc:HyperlinkButton Content="Go to Java.com and install it."
+                                                      Grid.Column="1"
+                                                      HorizontalAlignment="Right" />
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{DynamicResource GlobalLaunchOption_Memory}" 
+                                   Margin="10"/>
+                        <muxc:NumberBox Grid.Column="1" 
+                                        Margin="10,5,0,5"
+                                        AcceptsExpression="True"
+                                        SmallChange="128"
+                                        SpinButtonPlacementMode="Compact"
+                                        Minimum="128"
+                                        Description="{DynamicResource Minimum}"
+                                        VerticalAlignment="Center"/>
+                        <muxc:NumberBox Grid.Column="2" 
+                                        Margin="10,5,0,5"
+                                        AcceptsExpression="True"
+                                        SmallChange="128"
+                                        SpinButtonPlacementMode="Compact"
+                                        Minimum="512"
+                                        Description="{DynamicResource Maximum}"
+                                        VerticalAlignment="Center"/>
+                    </Grid>
+                    <CheckBox Content="{DynamicResource GlobalLaunchOption_DoNotCheckFiles}" 
+                              Margin="10,-2"
+                              IsChecked="{Binding Path=(launch:Launcher.DoNotCheckFiles), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="{DynamicResource GlobalLaunchOption_DoNotCompleteFiles}"
+                              Margin="10,-2"
+                              IsChecked="{Binding Path=(launch:Launcher.DoNotCompleteFiles), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="{DynamicResource GlobalLaunchOption_ShowDiagnosticLog}"
+                              Margin="10,-2"
+                              IsChecked="{Binding Path=(launch:Launcher.ShowDiagnosticLog), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Expander Background="{DynamicResource BackgroundTier2Brush}"
+                              Padding="10,0"
+                              Margin="0,5">
+                        <Expander.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{DynamicResource GlobalLaunchOption_Dimension}"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Margin="10" />
+                                <Rectangle Grid.Column="1"
+                                           HorizontalAlignment="Left"
+                                           Width="1"
+                                           Margin="0,8"
+                                           Fill="#35000000" />
+                                <TextBlock Text="&lt;No selection>"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Grid.Column="1"
+                                           Margin="10"
+                                           Foreground="Gray" />
+                            </Grid>
+                        </Expander.Header>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <muxc:NumberBox Margin="5"
+                                            AcceptsExpression="True"
+                                            SmallChange="128"
+                                            SpinButtonPlacementMode="Compact"
+                                            Minimum="512"
+                                            Description="{DynamicResource Width}"
+                                            VerticalAlignment="Center" />
+                            <muxc:NumberBox Margin="5"
+                                            AcceptsExpression="True"
+                                            SmallChange="128"
+                                            SpinButtonPlacementMode="Compact"
+                                            Minimum="512"
+                                            Description="{DynamicResource Height}"
+                                            VerticalAlignment="Center" 
+                                            Grid.Column="1"/>
+                            <CheckBox Content="{DynamicResource Fullscreen}"
+                                      Margin="5"
+                                      Grid.Row="1"
+                                      Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </Expander>
+                </muxc:SimpleStackPanel>
+            </HeaderedContentControl>
+            
+            <HeaderedContentControl FontSize="14"
+                                    Header="{DynamicResource QuickStart_Title}">
+                <StackPanel>
+                    <CheckBox Content="{DynamicResource QuickStart_Enable}"
+                              IsChecked="{Binding Path=(mcl:IndependentOptions.UseQuickStart), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              x:Name="QuickStartCheckBox"
+                              Margin="10,0"/>
+                    <Border Background="{DynamicResource BackgroundTier2Brush}"
+                            IsEnabled="{Binding IsChecked, ElementName=QuickStartCheckBox}"
+                            CornerRadius="3"
+                            Margin="0,5">
+                        <muxc:SimpleStackPanel>
+                            <muxc:ToggleSwitch OffContent="{DynamicResource QuickStart_UsePreviousScheme}"
+                                               OnContent="{DynamicResource QuickStart_UseCustomScheme}"
+                                               x:Name="QuickStartScheme"
+                                               Grid.ColumnSpan="2"
+                                               Margin="10"
+                                               IsOn="{Binding Path=(mcl:IndependentOptions.CustomQuickStart), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Rectangle Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       VerticalAlignment="Top"
+                                       Height="1"
+                                       Fill="#1E000000" />
+
+                            <muxc:SimpleStackPanel IsEnabled="{Binding IsOn, ElementName=QuickStartScheme}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Version"
+                                               Margin="10,0,0,0"
+                                               VerticalAlignment="Center"
+                                               Grid.Row="1" />
+                                    <ComboBox Grid.Row="1"
+                                              Grid.Column="1"
+                                              Margin="5,6,15,6"
+                                              HorizontalAlignment="Stretch" />
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <CheckBox Content="Select account before launch"
+                                              Margin="10,0"
+                                              x:Name="QuickStartSelectAccCheckBox"
+                                              IsChecked="{Binding Path=(mcl:IndependentOptions.SelectAccBeforeLaunchQs), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Grid x:Name="QuickStartSelectAccountGrid"
+                                          Grid.Row="1"
+                                          Margin="50,0,0,0"
+                                          Visibility="{Binding Path=IsChecked, ElementName=QuickStartSelectAccCheckBox, Converter={StaticResource BooleanToVisibilityConvertor}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="65" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Account"
+                                                   Margin="10,0,0,0"
+                                                   VerticalAlignment="Center"
+                                                   Grid.Row="1" />
+                                        <ComboBox Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  Margin="5,6,15,6"
+                                                  HorizontalAlignment="Stretch" />
+                                    </Grid>
+                                </Grid>
+
+                                <CheckBox Content="Debug mode"
+                                          Margin="10,0" />
+                            </muxc:SimpleStackPanel>
+
+                            
+                        </muxc:SimpleStackPanel>
+                    </Border>
+                </StackPanel>
+            </HeaderedContentControl>
+        </StackPanel>
+    </controls:AnimatedScrollViewer>
 </Page>

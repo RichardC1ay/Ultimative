@@ -43,11 +43,11 @@
                       Grid.Row="1"
                       Background="{DynamicResource BackgroundTier2Brush}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="140" />
+                        <RowDefinition Height="120" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="80" />
                     </Grid.RowDefinitions>
-                    <mclconts:MiniLauncher/>
+                    <mclconts:MiniLauncher Visibility="{Binding Path=(mcl:IndependentOptions.UseQuickStart), Converter={StaticResource BooleanToVisibilityConvertor}}"/>
 
                     <ContentPresenter Grid.Row="1"
                                       Style="{DynamicResource MainWindowSideOptions}"

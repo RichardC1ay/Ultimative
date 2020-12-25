@@ -12,7 +12,7 @@
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -32,10 +32,10 @@
                                 x:Name="respond"
                                 CornerRadius="{Binding Path=(ultimative:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                                 BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <ContentControl Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" 
-                                        HorizontalAlignment="Center" 
-                                        VerticalAlignment="Center"
-                                        Margin="{Binding Path=Padding, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                          HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource TemplatedParent}}"
+                                          VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Margin="{Binding Path=Padding, RelativeSource={RelativeSource TemplatedParent}}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <!--Trigger Property="Button.IsDefaulted" Value="true"-->

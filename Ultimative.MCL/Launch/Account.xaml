@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:muxc="http://schemas.modernwpf.com/2019"
+             xmlns:mcl="clr-namespace:Ultimative.MCL"
              xmlns:mclconts="clr-namespace:Ultimative.MCL.Controls"
              xmlns:ultimative="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
              mc:Ignorable="d" >
@@ -47,7 +48,8 @@
                                              Icon="Contact"
                                              x:Name="ItemIsSelected"
                                              Checked="ItemSelectToggleButton_Checked"
-                                             Unchecked="ItemSelectToggleButton_Unchecked" />
+                                             Unchecked="ItemSelectToggleButton_Unchecked" 
+                                             Visibility="{Binding Path=(mcl:IndependentOptions.SelectAccountBeforeLaunch), Converter={StaticResource BooleanToVisibilityConvertor}}"/>
                     <muxc:AppBarButton Label="Edit" Icon="Edit"
                                        Click="EditButton_Click" />
                     <muxc:AppBarButton Label="Delete" Icon="Delete"

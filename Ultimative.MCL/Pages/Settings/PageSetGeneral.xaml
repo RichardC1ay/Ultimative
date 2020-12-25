@@ -20,6 +20,7 @@
                     <muxc:ToggleSwitch OffContent="{DynamicResource AutoUpdate_Off}"
                                        OnContent="{DynamicResource AutoUpdate_On}"
                                        x:Name="UseAutoUpdate" 
+                                       Margin="10,0"
                                        IsOn="{Binding Path=(mcl:IndependentOptions.AutoUpdate), Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Border Background="{DynamicResource BackgroundTier2Brush}"
                             CornerRadius="3"

@@ -1,16 +1,13 @@
-﻿<Page x:Class="Ultimative.MCL.Pages.MclPageAccountManager"
+﻿<Page x:Class="Ultimative.MCL.Pages.VersionList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:controls="clr-namespace:Ultimative.Universal.Controls;assembly=Ultimative.Universal"
       xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
-      xmlns:mcl="clr-namespace:Ultimative.MCL"
       xmlns:muxc="http://schemas.modernwpf.com/2019"
-      xmlns:ultimative="clr-namespace:Ultimative.Universal;assembly=Ultimative.Universal"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MclPageAccountManager">
+      Title="VersionList">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid>
-            <TextBlock Text="{DynamicResource Accounts_Title}"
+            <TextBlock Text="{DynamicResource Versions_Title}"
                        Margin="25,15"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
@@ -35,35 +32,23 @@
                         Background="{DynamicResource BackgroundTier3Brush}"
                         Padding="15,8"
                         Cursor="Hand"
-                        Content="{DynamicResource Accounts_Create}"
-                        Click="CreateAccountButton_Click" />
+                        Content="{DynamicResource Versions_InstallNew}"
+                        Click="InstallNew_Click" />
                 <Button Style="{StaticResource UFlatButton}"
                         Foreground="Red"
                         FontSize="14"
                         Background="{DynamicResource BackgroundTier3Brush}"
                         Padding="15,8"
                         Cursor="Hand"
-                        Content="{DynamicResource Accounts_DeleteAll}"
-                        Click="DeleteAllButton_Click" />
+                        Content="{DynamicResource Versions_DeleteAll}" />
             </muxc:SimpleStackPanel>
+
+
         </Grid>
 
         <Rectangle Grid.Row="1"
                    VerticalAlignment="Top"
                    Height="1"
                    Fill="#1E000000" />
-        <!--引发未知错误-->
-        <controls:AnimatedScrollViewer Grid.Row="1"
-                                       VerticalScrollBarVisibility="Hidden">
-            <ItemsControl x:Name="ItemsControl"
-                          ItemsSource="{Binding Path=(mcl:MclCore.Accounts)}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <muxc:SimpleStackPanel Margin="61,20"
-                                               Spacing="15" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
-        </controls:AnimatedScrollViewer>
     </Grid>
 </Page>

@@ -59,6 +59,7 @@
     <Compile Include="Controls\AppTopBar.xaml.cs">
       <DependentUpon>AppTopBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Convertor\BooleanToVisibilityConvertor.cs" />
     <Compile Include="Convertor\InverseBooleanConvertor.cs" />
     <Compile Include="ScrollViewerAssist.cs" />
     <Compile Include="TextFieldAssist.cs" />

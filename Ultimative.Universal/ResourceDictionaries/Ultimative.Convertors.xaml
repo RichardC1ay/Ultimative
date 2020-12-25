@@ -4,4 +4,5 @@
                     xmlns:convertor="clr-namespace:Ultimative.Universal.Convertor"
                     xmlns:utils="clr-namespace:Ultimative.Universal.Utilities">
     <convertor:InverseBooleanConverter x:Key="InverseBooleanConvertor" />
+    <convertor:BooleanToVisibilityConvertor x:Key="BooleanToVisibilityConvertor" />
 </ResourceDictionary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,12 +23,25 @@ namespace Ultimative.MCL.Pages
     /// </summary>
     public partial class MclPageAccountManager : Page
     {
+        private NotifyCollectionChangedEventHandler changedHandler;
+
         public MclPageAccountManager()
         {
             InitializeComponent();
+            
+            changedHandler = new NotifyCollectionChangedEventHandler(Accounts_CollectionChanged); ;
+            MclCore.Accounts.CollectionChanged += changedHandler;
+            Unloaded += MclPageAccountManager_Unloaded;
+        }
 
-            MclCore.Accounts.CollectionChanged += delegate { ItemsControl.Items.Refresh(); };
+        private void MclPageAccountManager_Unloaded(object sender, RoutedEventArgs e)
+        {
+            MclCore.Accounts.CollectionChanged -= changedHandler;
+        }
 
+        private void Accounts_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            //ItemsControl.Items.Refresh();
         }
 
         private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
