@@ -22,7 +22,7 @@ namespace Ultimative.MCL.Pages.Dialogs
     /// </summary>
     public partial class DialogEditAccount : ContentDialog
     {
-        private Account account;
+        public Account EditingAccount;
 
         public DialogEditAccount()
         {
@@ -33,7 +33,7 @@ namespace Ultimative.MCL.Pages.Dialogs
         {
             InitializeComponent();
 
-            this.account = currentEditing;
+            this.EditingAccount = currentEditing;
 
             NameBox.Text = currentEditing.NameOrEmail;
             PasswdBox.Text = currentEditing.Password;
@@ -73,14 +73,14 @@ namespace Ultimative.MCL.Pages.Dialogs
                     _authMode = AuthMode.AuthIntellij;
                 }
 
-                if (account != null)
+                if (EditingAccount != null)
                 {
-                    if (account.Name != _nameOrEmail && MclCore.IsNameExists(_nameOrEmail))
+                    if (EditingAccount.Name != _nameOrEmail && MclCore.IsNameExists(_nameOrEmail))
                         return;
 
-                    account.NameOrEmail = _nameOrEmail;
-                    account.Password = _password;
-                    account.AuthMode = _authMode;
+                    EditingAccount.NameOrEmail = _nameOrEmail;
+                    EditingAccount.Password = _password;
+                    EditingAccount.AuthMode = _authMode;
                 }
                 else
                 {
@@ -89,11 +89,11 @@ namespace Ultimative.MCL.Pages.Dialogs
                         this.Closed += CreateFailed;
                         return;
                     }
-                    MclCore.Accounts.Add(new Account(
-                        _authMode, 
-                        _nameOrEmail, 
+                    EditingAccount = new Account(
+                        _authMode,
+                        _nameOrEmail,
                         _password
-                    ));
+                    );
 
                 }
             }
@@ -103,7 +103,7 @@ namespace Ultimative.MCL.Pages.Dialogs
         {
             new ContentDialog()
             {
-                Title = "Create Failed",
+                Title = "Create failed",
                 Content = "This name or email already exists!",
                 CloseButtonText = "Done",
                 DefaultButton = ContentDialogButton.Close
@@ -114,7 +114,7 @@ namespace Ultimative.MCL.Pages.Dialogs
         {
             var _newText = NameBox.Text;
 
-            if (account != null && account.NameOrEmail.Equals(_newText))
+            if (EditingAccount != null && EditingAccount.NameOrEmail.Equals(_newText))
                 return;
 
             AlreadyExistsTextBlock.Visibility = 

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Ultimative.Universal.Utilities;
 
 namespace Ultimative.MCL.Launch
 {
@@ -12,7 +16,7 @@ namespace Ultimative.MCL.Launch
     {
         private static int minMemory;
         private static int maxMemory;
-        private static string javaPath;
+        private static JavaHome javaPath;
         private static bool doNotCheckFiles;
         private static bool doNotCompleteFiles;
         private static bool showDiagnosticLog;
@@ -36,16 +40,6 @@ namespace Ultimative.MCL.Launch
             set
             {
                 maxMemory = value;
-                NotifyStaticPropertyChanged();
-            }
-        }
-
-        public static string JavaPath
-        {
-            get { return javaPath; }
-            set
-            {
-                javaPath = value;
                 NotifyStaticPropertyChanged();
             }
         }
@@ -110,6 +104,8 @@ namespace Ultimative.MCL.Launch
             }
         }
 
+        public static ObservableCollection<JavaHome> JavaPaths { get { return javaPaths; } }
+
         public static event PropertyChangedEventHandler StaticPropertyChanged;
 
         private static void NotifyStaticPropertyChanged([CallerMemberName] string name = null)
@@ -117,14 +113,52 @@ namespace Ultimative.MCL.Launch
             StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(name));
         }
 
+        public static string GetVersionType(string str)
+        {
+            switch (str)
+            {
+                case "release":
+                    return App.Current.FindResource("VersionType_Release") as string;
+                case "snapshot":
+                    return App.Current.FindResource("VersionType_Snapshot") as string;
+                case "old_beta":
+                    return App.Current.FindResource("VersionType_Old_Beta") as string;
+                case "old_alpha":
+                    return App.Current.FindResource("VersionType_Old_Alpha") as string;
+                default:
+                    return "unknown";
+            }
+        }
+
+        static Launcher()
+        {
+            javaPaths = new ObservableCollection<JavaHome>();
+            MinecraftVersions = new ObservableCollection<MinecraftVersion>();
+
+            CheckJavaRuntime();
+            new Thread(o => CheckVersionManifest())
+            { IsBackground = true }.Start();
+        }
+
         public Launcher()
         {
-
+            CheckJavaRuntime();
         }
 
         public void Launch()
         {
 
+        }
+    }
+
+    public struct JavaHome
+    {
+        public string name;
+        public string path;
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }

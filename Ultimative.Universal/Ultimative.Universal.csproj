@@ -59,12 +59,14 @@
     <Compile Include="Controls\AppTopBar.xaml.cs">
       <DependentUpon>AppTopBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ControlSet.cs" />
     <Compile Include="Convertor\BooleanToVisibilityConvertor.cs" />
     <Compile Include="Convertor\InverseBooleanConvertor.cs" />
     <Compile Include="ScrollViewerAssist.cs" />
     <Compile Include="TextFieldAssist.cs" />
     <Compile Include="Utilities\AnimationUtil.cs" />
     <Compile Include="Utilities\BindingProxy.cs" />
+    <Compile Include="Utilities\RegistryHelper.cs" />
     <Compile Include="Utilities\TemplateHelper.cs" />
     <Compile Include="Utilities\ValuePackaged.cs" />
     <Compile Include="Utilities\WindowAccentCompositor.cs" />

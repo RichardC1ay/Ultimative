@@ -55,15 +55,9 @@
         <!--引发未知错误-->
         <controls:AnimatedScrollViewer Grid.Row="1"
                                        VerticalScrollBarVisibility="Hidden">
-            <ItemsControl x:Name="ItemsControl"
-                          ItemsSource="{Binding Path=(mcl:MclCore.Accounts)}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <muxc:SimpleStackPanel Margin="61,20"
-                                               Spacing="15" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
+            <muxc:SimpleStackPanel Margin="61,20"
+                                   Spacing="15"
+                                   x:Name="ItemsControl"/>
         </controls:AnimatedScrollViewer>
     </Grid>
 </Page>

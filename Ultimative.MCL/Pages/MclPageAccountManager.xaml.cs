@@ -23,32 +23,25 @@ namespace Ultimative.MCL.Pages
     /// </summary>
     public partial class MclPageAccountManager : Page
     {
-        private NotifyCollectionChangedEventHandler changedHandler;
+        private EventHandler changedHandler;
 
         public MclPageAccountManager()
         {
             InitializeComponent();
-            
-            changedHandler = new NotifyCollectionChangedEventHandler(Accounts_CollectionChanged); ;
-            MclCore.Accounts.CollectionChanged += changedHandler;
-            Unloaded += MclPageAccountManager_Unloaded;
-        }
 
-        private void MclPageAccountManager_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MclCore.Accounts.CollectionChanged -= changedHandler;
-        }
-
-        private void Accounts_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            //ItemsControl.Items.Refresh();
+            MclCore.AccountPanel = ItemsControl;
         }
 
         private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
             var _dialog = new DialogEditAccount();
+            var result = await _dialog.ShowAsync();
 
-            await _dialog.ShowAsync();
+            if(result == ModernWpf.Controls.ContentDialogResult.Primary)
+            {
+                Account account = _dialog.EditingAccount;
+                MclCore.AddAccount(account);
+            }
         }
 
         private async void DeleteAllButton_Click(object sender, RoutedEventArgs e)

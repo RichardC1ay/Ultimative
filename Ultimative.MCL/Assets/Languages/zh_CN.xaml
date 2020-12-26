@@ -68,4 +68,9 @@
     <s:String x:Key="Fullscreen">全屏</s:String>
     <s:String x:Key="Minimum">最小值</s:String>
     <s:String x:Key="Maximum">最大值</s:String>
+
+    <s:String x:Key="VersionType_Release">正式版</s:String>
+    <s:String x:Key="VersionType_Snapshot">快照版</s:String>
+    <s:String x:Key="VersionType_Old_Beta">旧测试版</s:String>
+    <s:String x:Key="VersionType_Old_Alpha">旧正式版</s:String>
 </ResourceDictionary>

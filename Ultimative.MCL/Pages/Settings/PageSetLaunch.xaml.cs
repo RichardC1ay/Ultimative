@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ultimative.MCL.Launch;
 
 namespace Ultimative.MCL.Pages
 {
@@ -23,6 +24,51 @@ namespace Ultimative.MCL.Pages
         public PageSetLaunch()
         {
             InitializeComponent();
+
+            JavaPathGroup.SelectionChanged += delegate
+            {
+                var homeTag = (JavaHome)((RadioButton)JavaPathGroup.SelectedItem).Tag;
+
+                Launcher.JavaPath = homeTag;
+                JavaSelectionTextBlock.Text = homeTag.name;
+            };
+
+            foreach (JavaHome java in Launcher.JavaPaths)
+            {
+                var nameTextBlock = new TextBlock()
+                {
+                    Text = java.name,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Left
+                };
+                var pathTextBlock = new TextBlock()
+                {
+                    Text = java.path,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Foreground = new SolidColorBrush(Colors.Gray)
+                };
+
+                Grid.SetColumn(pathTextBlock, 1);
+
+                JavaPathGroup.Items.Add(new RadioButton()
+                {
+                    Content = new Grid()
+                    {
+                        ColumnDefinitions =
+                        {
+                            new ColumnDefinition() { Width = new GridLength(80)},
+                            new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star)}
+                        },
+                        Children =
+                        {
+                            nameTextBlock,
+                            pathTextBlock
+                        }
+                    },
+                    Tag = java
+                });
+            }
         }
     }
 }

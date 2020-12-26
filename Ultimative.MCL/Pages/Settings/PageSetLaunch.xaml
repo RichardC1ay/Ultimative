@@ -50,16 +50,15 @@
                                            VerticalAlignment="Center"
                                            Grid.Column="1"
                                            Margin="10"
-                                           Foreground="Gray" />
+                                           Foreground="Gray" 
+                                           x:Name="JavaSelectionTextBlock"/>
                             </Grid>
                         </Expander.Header>
                         <StackPanel Grid.Row="1"
                                     Grid.Column="1"
                                     Grid.ColumnSpan="2">
-                            <muxc:RadioButtons Margin="40,0,0,5">
-                                <RadioButton Content="Path1" />
-                                <RadioButton Content="Path2" />
-                            </muxc:RadioButtons>
+                            <muxc:RadioButtons Margin="30,0,0,5" 
+                                               x:Name="JavaPathGroup"/>
                             <Rectangle VerticalAlignment="Top"
                                        Height="1"
                                        Margin="0,8"
