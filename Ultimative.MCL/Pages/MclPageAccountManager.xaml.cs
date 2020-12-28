@@ -23,7 +23,6 @@ namespace Ultimative.MCL.Pages
     /// </summary>
     public partial class MclPageAccountManager : Page
     {
-        private EventHandler changedHandler;
 
         public MclPageAccountManager()
         {

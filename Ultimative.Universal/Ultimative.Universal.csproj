@@ -62,6 +62,7 @@
     <Compile Include="Controls\ControlSet.cs" />
     <Compile Include="Convertor\BooleanToVisibilityConvertor.cs" />
     <Compile Include="Convertor\InverseBooleanConvertor.cs" />
+    <Compile Include="Net\HttpFile.cs" />
     <Compile Include="ScrollViewerAssist.cs" />
     <Compile Include="TextFieldAssist.cs" />
     <Compile Include="Utilities\AnimationUtil.cs" />

@@ -183,7 +183,7 @@
                 </muxc:SimpleStackPanel>
             </HeaderedContentControl>
             
-            <HeaderedContentControl FontSize="14"
+            <!--HeaderedContentControl FontSize="14"
                                     Header="{DynamicResource QuickStart_Title}">
                 <StackPanel>
                     <CheckBox Content="{DynamicResource QuickStart_Enable}"
@@ -261,7 +261,7 @@
                         </muxc:SimpleStackPanel>
                     </Border>
                 </StackPanel>
-            </HeaderedContentControl>
+            </HeaderedContentControl-->
         </StackPanel>
     </controls:AnimatedScrollViewer>
 </Page>

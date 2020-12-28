@@ -1,0 +1,106 @@
+﻿<muxc:ContentDialog x:Class="Ultimative.MCL.Pages.Dialogs.DialogInstallInfo"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mclpages="clr-namespace:Ultimative.MCL.Pages"
+                    xmlns:controls="clr-namespace:Ultimative.Universal.Controls;assembly=Ultimative.Universal"
+                    xmlns:muxc="http://schemas.modernwpf.com/2019"
+                    xmlns:local="clr-namespace:Ultimative.MCL.Pages.Dialogs"
+                    mc:Ignorable="d"
+                    d:DesignHeight="450"
+                    d:DesignWidth="800"
+                    Title="Setup new version"
+                    PrimaryButtonText="Install"
+                    CloseButtonText="Cancel"
+                    DefaultButton="Primary">
+
+    <muxc:SimpleStackPanel>
+        <muxc:SimpleStackPanel.Resources>
+            <Style x:Key="InstallComponentButtonStyle" BasedOn="{StaticResource UFlatButton}" TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="Height" Value="36" />
+                <Setter Property="Padding" Value="10,0" />
+            </Style>
+        </muxc:SimpleStackPanel.Resources>
+
+        <TextBlock Text="Current version: " 
+                   Style="{StaticResource DescriptionTextBlockStyle}"
+                   Margin="10,0"
+                   FontSize="18"
+                   x:Name="VerNamePresenter"/>
+        <TextBlock Text="This version is already exists." 
+                   Margin="10,0"
+                   FontSize="12"
+                   Foreground="Red"
+                   Visibility="Collapsed"/>
+        <TextBox Margin="10,10"
+                 muxc:ControlHelper.Description="Enter a name for this version"
+                 x:Name="verNameBox"
+                 TextChanged="verNameBox_TextChanged" />
+        <muxc:SimpleStackPanel Width="260"
+                               Margin="30,10">
+            <Button Style="{DynamicResource InstallComponentButtonStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Forge"
+                               FontSize="14"/>
+                    <TextBlock x:Name="ForgeText" 
+                               Text="Do not install"
+                               Grid.Column="1"
+                               FontSize="14"
+                               Foreground="Gray"/>
+                </Grid>
+            </Button>
+            <Button Style="{DynamicResource InstallComponentButtonStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="OptiFine"
+                               FontSize="14" />
+                    <TextBlock x:Name="OptifineText"
+                               Text="Do not install"
+                               Grid.Column="1"
+                               FontSize="14"
+                               Foreground="Gray" />
+                </Grid>
+            </Button>
+            <Button Style="{DynamicResource InstallComponentButtonStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="LiteLoader"
+                               FontSize="14" />
+                    <TextBlock x:Name="LiteLoaderText"
+                               Text="Do not install"
+                               Grid.Column="1"
+                               FontSize="14"
+                               Foreground="Gray" />
+                </Grid>
+            </Button>
+            <Button Style="{DynamicResource InstallComponentButtonStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Fabric"
+                               FontSize="14" />
+                    <TextBlock x:Name="FabricText"
+                               Text="Do not install"
+                               Grid.Column="1"
+                               FontSize="14"
+                               Foreground="Gray" />
+                </Grid>
+            </Button>
+        </muxc:SimpleStackPanel>
+    </muxc:SimpleStackPanel>
+</muxc:ContentDialog>

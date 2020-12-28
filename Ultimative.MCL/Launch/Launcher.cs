@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -135,9 +136,13 @@ namespace Ultimative.MCL.Launch
             javaPaths = new ObservableCollection<JavaHome>();
             MinecraftVersions = new ObservableCollection<MinecraftVersion>();
 
+            Directory.CreateDirectory(MinecraftDir);
+            Directory.CreateDirectory(AssetsDir);
+            Directory.CreateDirectory(LibrariesDir);
+            Directory.CreateDirectory(VersionsDir);
+
             CheckJavaRuntime();
-            new Thread(o => CheckVersionManifest())
-            { IsBackground = true }.Start();
+            new Thread(o => CheckVersionManifest()) { IsBackground = true }.Start();
         }
 
         public Launcher()

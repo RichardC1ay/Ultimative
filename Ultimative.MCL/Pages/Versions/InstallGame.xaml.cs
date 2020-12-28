@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ultimative.MCL.Launch;
+using Ultimative.MCL.Pages.Dialogs;
 using Ultimative.Universal.Controls;
 
 namespace Ultimative.MCL.Pages
@@ -119,10 +120,15 @@ namespace Ultimative.MCL.Pages
                 _radioButton.IsChecked = false;
         }
 
-        private void VersionButton_Click(object sender, RoutedEventArgs e)
+        private async void VersionButton_Click(object sender, RoutedEventArgs e)
         {
-            InstallVersion = (MinecraftVersion)((Button)sender).Tag;
+            var ver = (MinecraftVersion)((Button)sender).Tag;
+            var result = await new DialogInstallInfo(ver).ShowAsync();
 
+            if(result == ModernWpf.Controls.ContentDialogResult.Primary)
+            {
+                Launcher.GetManifest(ver.Url, ver.Id);
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

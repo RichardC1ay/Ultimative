@@ -69,14 +69,17 @@
     </Compile>
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="IndependentOptions.cs" />
+    <Compile Include="Launch\JsonResources.cs" />
     <Compile Include="Launch\Launcher.cs" />
     <Compile Include="Launch\GameHandle.cs" />
     <Compile Include="Launch\Launcher.External.cs" />
-    <Compile Include="Launch\MinecraftVersion.cs" />
-    <Compile Include="Launch\Version.cs" />
+    <Compile Include="Launch\InstalledVersion.cs" />
     <Compile Include="MclCore.cs" />
     <Compile Include="Pages\Dialogs\DialogEditAccount.xaml.cs">
       <DependentUpon>DialogEditAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dialogs\DialogInstallInfo.xaml.cs">
+      <DependentUpon>DialogInstallInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainWindow.SideOptions.cs" />
     <Compile Include="Pages\MainWindow.xaml.cs">
@@ -111,9 +114,6 @@
     </Compile>
     <Compile Include="Pages\Versions\InstallGame.xaml.cs">
       <DependentUpon>InstallGame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Versions\InstallInfo.xaml.cs">
-      <DependentUpon>InstallInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Versions\VersionList.xaml.cs">
       <DependentUpon>VersionList.xaml</DependentUpon>
@@ -175,6 +175,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Dialogs\DialogInstallInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MclPageAccountManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,10 +220,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Versions\InstallGame.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Versions\InstallInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

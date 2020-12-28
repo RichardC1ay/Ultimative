@@ -35,7 +35,6 @@ namespace Ultimative.MCL.Pages
                 typeof(InstallGame), 
                 null, 
                 new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
-            
         }
     }
 }
