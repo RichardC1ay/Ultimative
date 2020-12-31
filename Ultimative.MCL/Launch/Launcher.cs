@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Ultimative.Universal.Net;
 using Ultimative.Universal.Utilities;
 
 namespace Ultimative.MCL.Launch
@@ -135,6 +136,8 @@ namespace Ultimative.MCL.Launch
         {
             javaPaths = new ObservableCollection<JavaHome>();
             MinecraftVersions = new ObservableCollection<MinecraftVersion>();
+            Tasks = new List<MultiFileTask>();
+            installedVers = new ObservableCollection<InstalledVersion>();
 
             Directory.CreateDirectory(MinecraftDir);
             Directory.CreateDirectory(AssetsDir);

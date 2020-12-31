@@ -23,7 +23,6 @@ namespace Ultimative.MCL.Launch
             var assetIndexJson = (JObject)manifest.GetValue("assetIndex");
             var libraryJson = JArray.Parse(manifest.GetValue("libraries").ToString());
             var coreJson = ((JObject)manifest.GetValue("downloads")).GetValue("client").ToObject<JObject>();
-            var arguments = manifest.GetValue("arguments").ToObject<JObject>();
 
             Id = manifest.GetValue("id").ToObject<string>();
             Type = manifest.GetValue("type").ToObject<string>();
@@ -45,12 +44,22 @@ namespace Ultimative.MCL.Launch
 
             Assets = manifest.GetValue("assets").ToObject<string>();
 
-            JArray gameArgs = JArray.Parse(arguments.GetValue("game").ToString());
+            string args;
+            if (manifest.ContainsKey("game"))
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (JToken itemToken in JArray.Parse(manifest.Value<JObject>("game").ToString()))
+                    if (itemToken.Type == JTokenType.String)
+                        sb.Append(itemToken.ToObject<string>()); 
+            }
+            else
+                args = manifest.Value<string>("minecraftArguments");
 
             Packages.Add(new Package(
                 "Main",
                 manifest.GetValue("mainClass").ToObject<string>(),
-                null
+                Environment.CurrentDirectory + "\\.minecraft\\versions\\" + Id,
+                null 
             ));
         }
     }
@@ -62,14 +71,16 @@ namespace Ultimative.MCL.Launch
         public List<string> Arguments { get; }
         public List<Library> Libraries { get; set; }
         public DateTime Time { get; }
+        public string GamePath { get; set; }
 
-        public Package(string id, string mainClass, string[] arguments)
+        public Package(string id, string mainClass, string path, string[] arguments)
         {
             Id = id;
             MainClass = mainClass;
-            Arguments = new List<string>(arguments);
+            Arguments = arguments == null ? null : new List<string>(arguments);
             Libraries = new List<Library>();
             Time = DateTime.Now;
+            GamePath = path;
         }
     }
 

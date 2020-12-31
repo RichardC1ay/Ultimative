@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Ultimative.Universal;
@@ -21,6 +22,8 @@ namespace Ultimative.MCL
 
         public App()
         {
+            ThreadPool.SetMaxThreads(64, 16);
+
             System.Reflection.Assembly appAssembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             JsonTextReader reader = new JsonTextReader(new StreamReader(appAssembly.GetManifestResourceStream("Ultimative.MCL.Properties.lang.json")));

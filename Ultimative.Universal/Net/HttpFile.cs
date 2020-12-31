@@ -11,9 +11,9 @@ namespace Ultimative.Universal.Net
 {
     public static class HttpFile
     {
-        public static void Download(string httpUrl, string localFilePath, Callback callback)
+        public static void Download(string from, string to, Callback callback)
         {
-            if (httpUrl == null)
+            if (from == null)
                 return;
 
             var indexesFolder = Environment.CurrentDirectory + "\\.minecraft\\assets\\indexes";
@@ -21,7 +21,7 @@ namespace Ultimative.Universal.Net
 
             WebResponse response = null;
             //获取远程文件
-            WebRequest request = WebRequest.Create(httpUrl);
+            WebRequest request = WebRequest.Create(from);
             response = request.GetResponse();
             if (response == null) 
                 return;
@@ -30,7 +30,7 @@ namespace Ultimative.Universal.Net
             ThreadPool.QueueUserWorkItem((obj) =>
             {
                 Stream netStream = response.GetResponseStream();
-                Stream fileStream = new FileStream(localFilePath, FileMode.Create);
+                Stream fileStream = new FileStream(to, FileMode.Create);
                 byte[] read = new byte[1024];
                 long progressBarValue = 0;
                 int realReadLen = netStream.Read(read, 0, read.Length);

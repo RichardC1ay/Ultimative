@@ -22,10 +22,13 @@ namespace Ultimative.MCL.Launch
         private static ObservableCollection<InstalledVersion> installedVers;
 
         private const string versionManifestUrl = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
+        private const string assetObjectUrl = "http://resources.download.minecraft.net/";
         public static readonly string MinecraftDir = Environment.CurrentDirectory + "\\.minecraft";
         public static readonly string AssetsDir = Environment.CurrentDirectory + "\\.minecraft\\assets";
         public static readonly string LibrariesDir = Environment.CurrentDirectory + "\\.minecraft\\libraries";
         public static readonly string VersionsDir = Environment.CurrentDirectory + "\\.minecraft\\versions";
+
+        public static List<MultiFileTask> Tasks;
 
         public static JavaHome JavaPath
         {
@@ -129,7 +132,6 @@ namespace Ultimative.MCL.Launch
                 try
                 {
                     textReader = new JsonTextReader(new StreamReader(new FileStream(indexFile, FileMode.Open)));
-
                 }
                 catch (IOException ex)
                 {
@@ -151,24 +153,89 @@ namespace Ultimative.MCL.Launch
             var version = new InstalledVersion(manifest);
 
             installedVers.Add(version);
-            GetAssembly(version.AssetIndex);
-            GetLibraries(version.Packages.Find(o => o.Id == "game"));
-            GetVersionCore(version.Core);
+            GetVersionCore(version);
+            GetAssembly(version);
+            GetLibraries(version, version.Packages.Find(o => o.Id == "game"));
         }
 
-        public static void GetAssembly(AssetObject assetObject)
+        public static void GetAssembly(InstalledVersion version)
+        {
+            AssetObject assetObject = version.AssetIndex;
+            string indexDir = AssetsDir + "\\indexes";
+            string index = indexDir + "\\" + assetObject.FileName;
+
+            Directory.CreateDirectory(indexDir);
+            HttpFile.Download(assetObject.HttpUrl, index, delegate
+            {
+                GetAssetResources((JObject)JToken.ReadFrom(
+                    new JsonTextReader(
+                        new StreamReader(
+                            new FileStream(index, FileMode.Open)
+                        )
+                    )));
+            });
+        }
+
+        public static void GetAssetResources(JObject objects)
+        {
+            var assetObjectsDir = AssetsDir + "\\objects";
+            Directory.CreateDirectory(assetObjectsDir);
+
+            var taskGuid = Guid.NewGuid().ToString();
+            List<JObject> dlQueue = new List<JObject>();
+            System.Diagnostics.Debug.WriteLine(objects.Value<JObject>("objects").Children().Count());
+            foreach (JToken itemToken in objects.Value<JObject>("objects").Values())
+            {
+                var hash = itemToken.Value<string>("hash");
+                System.Diagnostics.Debug.WriteLine(assetObjectsDir + "\\" + hash.Substring(0, 2) + "\\" + hash);
+                if (!File.Exists(assetObjectsDir + "\\" + hash.Substring(0, 2) + "\\" + hash))
+                    dlQueue.Add(itemToken.ToObject<JObject>());
+            }
+
+            MultiFileTask task = new MultiFileTask(taskGuid, dlQueue.Count);
+            Tasks.Add(task);
+
+            foreach (JObject item in dlQueue)
+            {
+                string hash = item.GetValue("hash").ToObject<string>();
+                int size = item.GetValue("size").ToObject<int>();
+
+                string hash2code = hash.Substring(0, 2);
+
+                string parent = assetObjectsDir + "\\" + hash2code;
+                string path = parent + "\\" + hash;
+
+                Directory.CreateDirectory(parent);
+
+                HttpFile.Download(assetObjectUrl + hash2code + '/' + hash, path, delegate { task.Done += 1; });
+            }
+        }
+
+        public static void GetLibraries(InstalledVersion version, string libName)
+        {
+            GetLibraries(version, version.Packages.Find(o => o.Id == "game"));
+        }
+        
+        public static void GetLibraries(InstalledVersion version, Package package)
         {
 
         }
 
-        public static void GetLibraries(Package package)
+        public static void GetVersionCore(InstalledVersion version)
         {
+            AssetObject coreAsset = version.Core;
 
-        }
+            string directory = MinecraftDir + "\\versions\\" + version.Id + "\\";
+            string corePath = directory + "\\" + version.Id + ".jar";
 
-        public static void GetVersionCore(AssetObject assetObject)
-        {
+            if (File.Exists(corePath))
+                if (coreAsset.SHA1Code == FileHelper.GetSHA1(corePath))
+                    return;
+                else
+                    File.Delete(corePath);
 
+            Directory.CreateDirectory(directory);
+            HttpFile.Download(coreAsset.HttpUrl, corePath, null);
         }
 
     }
