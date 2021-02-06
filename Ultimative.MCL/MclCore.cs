@@ -18,7 +18,8 @@ namespace Ultimative.MCL
 {
     public static class MclCore
     {
-        private static ObservableCollection<Account> _accounts;
+        private static ObservableCollection<Account> accounts;
+        private static ObservableCollection<Launch.Version> versions;
         private static Account _usingAccount;
         private static SimpleStackPanel accountPanel;
 
@@ -34,7 +35,7 @@ namespace Ultimative.MCL
                     accountPanel.Children.Clear();
 
                 accountPanel = value;
-                foreach (Account account in _accounts)
+                foreach (Account account in accounts)
                 {
                     accountPanel.Children.Add(account);
                 }
@@ -43,7 +44,12 @@ namespace Ultimative.MCL
 
         public static ObservableCollection<Account> Accounts
         {
-            get { return _accounts; }
+            get { return accounts; }
+        }
+
+        public static ObservableCollection<Launch.Version> Versions
+        {
+            get { return versions; }
         }
 
         public static Account UsingAccount
@@ -70,7 +76,7 @@ namespace Ultimative.MCL
         static MclCore()
         {
             //初始化变量
-            _accounts = new ObservableCollection<Account>();
+            accounts = new ObservableCollection<Account>();
             
             GameLauncher = new Launcher();
 
@@ -82,12 +88,17 @@ namespace Ultimative.MCL
             if (nameOrEmail == null || nameOrEmail.Equals(""))
                 return false;
 
-            foreach (Account account in _accounts)
+            foreach (Account account in accounts)
             {
                 if (nameOrEmail.Equals(account.NameOrEmail))
                     return true;
             }
             return false;
+        }
+
+        public static void AddVersion(Launch.Version version)
+        {
+            Versions.Add(version);
         }
 
         public static void AddAccount(Account account)

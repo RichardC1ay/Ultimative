@@ -69,11 +69,14 @@
     </Compile>
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="IndependentOptions.cs" />
+    <Compile Include="Launch\Version.xaml.cs">
+      <DependentUpon>Version.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Launch\JsonResources.cs" />
     <Compile Include="Launch\Launcher.cs" />
     <Compile Include="Launch\GameHandle.cs" />
     <Compile Include="Launch\Launcher.External.cs" />
-    <Compile Include="Launch\InstalledVersion.cs" />
+    <Compile Include="Launch\Version.Details.cs" />
     <Compile Include="MclCore.cs" />
     <Compile Include="Pages\Dialogs\DialogEditAccount.xaml.cs">
       <DependentUpon>DialogEditAccount.xaml</DependentUpon>
@@ -170,6 +173,10 @@
     <Page Include="Controls\MclControls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Launch\Version.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Dialogs\DialogEditAccount.xaml">
       <SubType>Designer</SubType>

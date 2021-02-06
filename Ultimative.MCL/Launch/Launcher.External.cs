@@ -19,7 +19,7 @@ namespace Ultimative.MCL.Launch
     public partial class Launcher
     {
         private static ObservableCollection<JavaHome> javaPaths;
-        private static ObservableCollection<InstalledVersion> installedVers;
+        private static ObservableCollection<Version> installedVers;
 
         private const string versionManifestUrl = "https://launchermeta.mojang.com/mc/game/version_manifest.json";
         private const string assetObjectUrl = "http://resources.download.minecraft.net/";
@@ -150,15 +150,18 @@ namespace Ultimative.MCL.Launch
 
         public static void Install(JObject manifest)
         {
-            var version = new InstalledVersion(manifest);
+            var version = new Version(manifest);
 
             installedVers.Add(version);
-            GetVersionCore(version);
-            GetAssembly(version);
-            GetLibraries(version, version.Packages.Find(o => o.Id == "game"));
+            ThreadPool.QueueUserWorkItem((obj) =>
+            {
+                GetVersionCore(version);
+                GetAssembly(version);
+                GetLibraries(version, version.Packages.Find(o => o.Id == "game"));
+            });
         }
 
-        public static void GetAssembly(InstalledVersion version)
+        public static void GetAssembly(Version version)
         {
             AssetObject assetObject = version.AssetIndex;
             string indexDir = AssetsDir + "\\indexes";
@@ -211,17 +214,17 @@ namespace Ultimative.MCL.Launch
             }
         }
 
-        public static void GetLibraries(InstalledVersion version, string libName)
+        public static void GetLibraries(Version version, string libName)
         {
             GetLibraries(version, version.Packages.Find(o => o.Id == "game"));
         }
         
-        public static void GetLibraries(InstalledVersion version, Package package)
+        public static void GetLibraries(Version version, Package package)
         {
 
         }
 
-        public static void GetVersionCore(InstalledVersion version)
+        public static void GetVersionCore(Version version)
         {
             AssetObject coreAsset = version.Core;
 

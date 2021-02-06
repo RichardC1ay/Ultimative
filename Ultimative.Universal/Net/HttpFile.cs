@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Ultimative.Universal.Net
 {
@@ -43,8 +44,11 @@ namespace Ultimative.Universal.Net
                 netStream.Close();
                 fileStream.Close();
 
-                if (callback != null)
-                    callback.Invoke();
+                Application.Current.Dispatcher.Invoke(delegate {
+                    if (callback != null)
+                        callback.Invoke();
+                });
+                
             }, null);
         }
 

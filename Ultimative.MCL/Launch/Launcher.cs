@@ -137,7 +137,7 @@ namespace Ultimative.MCL.Launch
             javaPaths = new ObservableCollection<JavaHome>();
             MinecraftVersions = new ObservableCollection<MinecraftVersion>();
             Tasks = new List<MultiFileTask>();
-            installedVers = new ObservableCollection<InstalledVersion>();
+            installedVers = new ObservableCollection<Version>();
 
             Directory.CreateDirectory(MinecraftDir);
             Directory.CreateDirectory(AssetsDir);

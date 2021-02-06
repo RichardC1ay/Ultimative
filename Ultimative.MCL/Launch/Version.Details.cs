@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Ultimative.MCL.Launch
 {
-    public class InstalledVersion
+    public partial class Version : UserControl
     {
         public string Id { get; set; }
         public string Type { get; set; }
@@ -16,8 +17,10 @@ namespace Ultimative.MCL.Launch
         public string Assets { get; set; }
         public List<Package> Packages { get; }
 
-        public InstalledVersion(JObject manifest)
+        public Version(JObject manifest)
         {
+            InitializeComponent();
+
             Packages = new List<Package>();
 
             var assetIndexJson = (JObject)manifest.GetValue("assetIndex");
@@ -44,22 +47,21 @@ namespace Ultimative.MCL.Launch
 
             Assets = manifest.GetValue("assets").ToObject<string>();
 
-            string args;
+            List<string> args = new List<string>();
             if (manifest.ContainsKey("game"))
             {
-                StringBuilder sb = new StringBuilder();
                 foreach (JToken itemToken in JArray.Parse(manifest.Value<JObject>("game").ToString()))
                     if (itemToken.Type == JTokenType.String)
-                        sb.Append(itemToken.ToObject<string>()); 
+                        args.Add(itemToken.ToObject<string>());
             }
             else
-                args = manifest.Value<string>("minecraftArguments");
+                args = new List<string>(manifest.Value<string>("minecraftArguments").Split(' '));
 
             Packages.Add(new Package(
                 "Main",
                 manifest.GetValue("mainClass").ToObject<string>(),
                 Environment.CurrentDirectory + "\\.minecraft\\versions\\" + Id,
-                null 
+                args
             ));
         }
     }
@@ -68,7 +70,7 @@ namespace Ultimative.MCL.Launch
     {
         public string Id { get; set; }
         public string MainClass { get; set; }
-        public List<string> Arguments { get; }
+        public List<string> Arguments { get; private set; }
         public List<Library> Libraries { get; set; }
         public DateTime Time { get; }
         public string GamePath { get; set; }
@@ -78,6 +80,16 @@ namespace Ultimative.MCL.Launch
             Id = id;
             MainClass = mainClass;
             Arguments = arguments == null ? null : new List<string>(arguments);
+            Libraries = new List<Library>();
+            Time = DateTime.Now;
+            GamePath = path;
+        }
+
+        public Package(string id, string mainClass, string path, List<string> arguments)
+        {
+            Id = id;
+            MainClass = mainClass;
+            Arguments = arguments;
             Libraries = new List<Library>();
             Time = DateTime.Now;
             GamePath = path;
